@@ -1,7 +1,6 @@
 site_name: Big Data Aplicado 2024-25
 
 nav:
-  - Home: index.md
+  - UD00 Conceptos Generales: 00-ConceptosGenerales.md
 
 theme: material
-
