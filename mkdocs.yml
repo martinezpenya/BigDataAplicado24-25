@@ -1,0 +1,7 @@
+site_name: Big Data Aplicado 2024-25
+
+nav:
+  - Home: index.md
+
+theme: material
+
