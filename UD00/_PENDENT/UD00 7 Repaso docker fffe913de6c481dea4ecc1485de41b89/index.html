@@ -1,0 +1,1179 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD00/_PENDENT/UD00%207%20Repaso%20docker%20fffe913de6c481dea4ecc1485de41b89/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>UD00 7. Repaso docker - Big Data Aplicado 2024-25</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ud00-7-repaso-docker" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Big Data Aplicado 2024-25
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UD00 7. Repaso docker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Big Data Aplicado 2024-25
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    INICIO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 00 Conceptos Generales
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            UD 00 Conceptos Generales
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.ConceptosGenerales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conceptos Generales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    $_bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../8.EntornosVirtualesPython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python venv
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 02 Cluster Pseudo. HDFS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            UD 02 Cluster Pseudo. HDFS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../UD02/1.instalacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD00/_PENDENT/UD00 7 Repaso docker fffe913de6c481dea4ecc1485de41b89.md" title="Editar esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="ud00-7-repaso-docker">UD00 7. Repaso docker</h1>
+<h1 id="1-arquitectura">1. Arquitectura</h1>
+<p><img alt="Untitled" src="Untitled.png" /></p>
+<p><img alt="Untitled" src="Untitled%201.png" /></p>
+<p><img alt="Untitled" src="Untitled%202.png" /></p>
+<h1 id="2-instalacion">2. Instalación</h1>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-es">https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-es</a></p>
+<p>Requisitos previos:</p>
+<ul>
+<li><strong>apt-transport-https:</strong> permite que el administrador de paquetes transfiera datos a través de https</li>
+<li><strong>ca-certificates:</strong> permite que el navegador web y el sistema verifiquen los certificados de seguridad</li>
+<li><strong>curl:</strong> transfiere datos (similar a wget)</li>
+<li><strong>software-properties-common:</strong> agrega scripts para administrar el software</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w">  </span>curl<span class="w"> </span>apt-transport-https<span class="w"> </span>ca-certificates<span class="w"> </span>software-properties-common
+</span></code></pre></div>
+<p>Agregamos repositorio</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Primero clave GPG</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sudo<span class="w"> </span>add-apt-repository<span class="w"> </span><span class="s2">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> stable&quot;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>docker-ce
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>docker
+</span></code></pre></div>
+<p>Por defecto, el comando docker solo puede ser ejecutado por el usuario root o un usuario del grupo docker, que se crea automáticamente durante el proceso de instalación de Docker.</p>
+<p>Para evitar escribir sudo al ejecutar el comando docker, agregue su nombre de usuario al grupo docker:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Cerramos y abrimos sesión de nuevo o ejecutamos</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>su<span class="w"> </span>-<span class="w"> </span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Confirmamos los grupos de nuestro usuario</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>id<span class="w"> </span>-nG
+</span></code></pre></div>
+<h2 id="21-comandos-basicos">2.1. Comandos básicos</h2>
+<h3 id="gestion-de-imagenes">Gestión de imagenes</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>image
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>docker<span class="w"> </span><span class="nb">history</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>docker<span class="w"> </span>inspect
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>docker<span class="w"> </span>save/load
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>docker<span class="w"> </span>rmi
+</span></code></pre></div>
+<h3 id="gestion-de-contenedores">Gestión de contenedores</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>attach
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>docker<span class="w"> </span><span class="nb">exec</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>docker<span class="w"> </span>inspect
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>docker<span class="w"> </span><span class="nb">kill</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>docker<span class="w"> </span>logs
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>docker<span class="w"> </span>pause/unpause
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>docker<span class="w"> </span>port
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>docker<span class="w"> </span>ps
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>docker<span class="w"> </span>rename
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>docker<span class="w"> </span>start/stop/restart
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>docker<span class="w"> </span>rm
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>docker<span class="w"> </span>run
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>docker<span class="w"> </span>stats
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>docker<span class="w"> </span>top
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>docker<span class="w"> </span>update
+</span></code></pre></div>
+<h3 id="ejemplo">Ejemplo</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Ver los contenedores que tenemos</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>docker<span class="w"> </span>ps
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">     </span>COMMAND<span class="w">   </span>CREATED<span class="w">   </span>STATUS<span class="w">    </span>PORTS<span class="w">     </span>NAMES
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># Ver las imagenes que tenemos</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>docker<span class="w"> </span>images
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>REPOSITORY<span class="w">                             </span>TAG<span class="w">       </span>IMAGE<span class="w"> </span>ID<span class="w">       </span>CREATED<span class="w">        </span>SIZE
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1"># Crear un contenedor con una imagen básica de debian</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># Como no tenemos ninguna imagen de debian, la descarga y la ejecuta</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>docker<span class="w"> </span>run<span class="w"> </span>debian
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c1"># Intentamos ver el contenedor en ejecución, no aparece nada porque ya se ha cerrado</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>docker<span class="w"> </span>ps
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="c1"># Podemos verlo con</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">     </span>COMMAND<span class="w">       </span>CREATED<span class="w">              </span>STATUS<span class="w">                          </span>PORTS<span class="w">     </span>NAMES
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>09b14daab800<span class="w">   </span>debian<span class="w">    </span><span class="s2">&quot;bash&quot;</span><span class="w">        </span><span class="m">2</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">        </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>second<span class="w"> </span>ago<span class="w">                   </span>pensive_wozniak
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="c1"># Ejecutar un comando en un contenedor</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>docker<span class="w"> </span>run<span class="w"> </span>debian<span class="w"> </span>/bin/echo<span class="w"> </span><span class="s2">&quot;Hello World&quot;</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>Hello<span class="w"> </span>World
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="c1"># Información</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>docker<span class="w"> </span>inspect<span class="w"> </span>debian
+</span></code></pre></div>
+<h2 id="11-crear-contenedor-interactivo-y-con-nombre">1.1. Crear contenedor interactivo y con nombre.</h2>
+<p><a href="https://jolthgs.wordpress.com/2019/09/25/create-a-debian-container-in-docker-for-development/">https://jolthgs.wordpress.com/2019/09/25/create-a-debian-container-in-docker-for-development/</a></p>
+<p>Para que docker no se invente un nombre como “pensive_wozniak” (comando anterior) podemos definir el nombre que queremos.</p>
+<p>Utilizaremos una de las imágenes de: <a href="https://hub.docker.com/_/debian/tags">https://hub.docker.com/_/debian/tags</a></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Obtenemos la imagen, en el apartado aterior la hemos ejecutado directamente con &quot;run&quot;, esto</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># la obtiene implícitamente. En este caso la vamos a descargar.</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>docker<span class="w"> </span>pull<span class="w"> </span>debian:10-slim
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># --name</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># -h hostname que tendrá el contenedor</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># -e codificación de caracteres</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># -it modo interactivo</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># /bin/bash -l  la shell que se ejecutará</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>debian-mini<span class="w"> </span>-h<span class="w"> </span>equipo1<span class="w"> </span>-e<span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>C.UTF-8<span class="w"> </span>-it<span class="w"> </span>debian:10-slim<span class="w"> </span>/bin/bash<span class="w"> </span>-l
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="c1"># Una vez dentro del contenedor podemos actualizarlo e instalar los paquetes que creamos necesarios</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>--yes<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>sudo<span class="w"> </span>locales<span class="w"> </span>--yes
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="c1"># Configurar timezone</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>dpkg-reconfigure<span class="w"> </span>tzdata
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c1"># Vamos a nuestra home y creamos un archivo</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="nb">cd</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hola&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>prueba.txt
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="c1"># Salimos del contenedor</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="nb">exit</span><span class="w"> </span><span class="o">(</span>o<span class="w"> </span>control<span class="w"> </span>+<span class="w"> </span>d<span class="o">)</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>---
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>docker<span class="w"> </span>ps
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">     </span>COMMAND<span class="w">   </span>CREATED<span class="w">   </span>STATUS<span class="w">    </span>PORTS<span class="w">     </span>NAMES
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">            </span>COMMAND<span class="w">          </span>CREATED<span class="w">          </span>STATUS<span class="w">                      </span>PORTS<span class="w">     </span>NAMES
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>97d8dc048093<span class="w">   </span>debian:10-slim<span class="w">   </span><span class="s2">&quot;/bin/bash -l&quot;</span><span class="w">   </span><span class="m">2</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">    </span>Exited<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">24</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">             </span>debian-mini
+</span></code></pre></div>
+<p>Una vez personalizado el contenedor podremos <a href="https://www.notion.so/fffe913de6c481e595e7df88025b9a38?pvs=21"></a> </p>
+<h1 id="2-imagenes">2. Imagenes</h1>
+<p>Es un instalador donde podemos incorporar nuestra aplicación. Es el punto de inicio para crear contenedores.
+Hay imágenes oficiales de por ejemplo Ubuntu, Apache, etc, que fueron creadas por sus creadores oficiales.</p>
+<p>Página oficial para imagenes: <a href="https://hub.docker.com">https://hub.docker.com</a> </p>
+<p>Vamos a utilizar la siguiente imagen para pruebas:</p>
+<p><a href="https://hub.docker.com/_/hello-world">https://hub.docker.com/_/hello-world</a></p>
+<p>Para ejecutar este contenedor “hello-word” escribimos en la terminal:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</span></code></pre></div>
+<p>Una vez ejecutado, ya dispondremos de la imagen descargada, podemos ver todas las imagenes que tenemos decargadas con:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>images
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>REPOSITORY<span class="w">                              </span>TAG<span class="w">           </span>IMAGE<span class="w"> </span>ID<span class="w">       </span>CREATED<span class="w">        </span>SIZE
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>hello-world<span class="w">                             </span>latest<span class="w">        </span>ee301c921b8a<span class="w">   </span><span class="m">9</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">   </span><span class="m">9</span>.14kB
+</span></code></pre></div>
+<p>Desde la página web de docker hub, podemos ver diferentes versiones de la misma imagen en la pestaña “TAGS”</p>
+<p><img alt="Untitled" src="Untitled%203.png" /></p>
+<p>Podemos descargar una imagen específica y ejecutarla:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world:linux
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>docker<span class="w"> </span>images
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>REPOSITORY<span class="w">                              </span>TAG<span class="w">           </span>IMAGE<span class="w"> </span>ID<span class="w">       </span>CREATED<span class="w">        </span>SIZE
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>hello-world<span class="w">                             </span>latest<span class="w">        </span>ee301c921b8a<span class="w">   </span><span class="m">9</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">   </span><span class="m">9</span>.14kB
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>hello-world<span class="w">                             </span>linux<span class="w">         </span>ee301c921b8a<span class="w">   </span><span class="m">9</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">   </span><span class="m">9</span>.14kB
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world:linux
+</span></code></pre></div>
+<p>Para eliminar una imagen utilizamos el parámetro <code>rmi</code> por ejemplo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>alpine
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>docker<span class="w"> </span>images
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>REPOSITORY<span class="w">                              </span>TAG<span class="w">           </span>IMAGE<span class="w"> </span>ID<span class="w">       </span>CREATED<span class="w">        </span>SIZE
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>alpine<span class="w">                                  </span>latest<span class="w">        </span>ace17d5d883e<span class="w">   </span><span class="m">3</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">    </span><span class="m">7</span>.73MB
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>hello-world<span class="w">                             </span>latest<span class="w">        </span>ee301c921b8a<span class="w">   </span><span class="m">9</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">   </span><span class="m">9</span>.14kB
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>hello-world<span class="w">                             </span>linux<span class="w">         </span>ee301c921b8a<span class="w">   </span><span class="m">9</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">   </span><span class="m">9</span>.14kB
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># Eliminamos, opción 1</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>docker<span class="w"> </span>rmi<span class="w"> </span>ace17d5d883e
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="c1"># Eliminamos, opción 2</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>docker<span class="w"> </span>rmi<span class="w"> </span>alpine
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="c1"># Eliminamos, opción 3</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>docker<span class="w"> </span>rmi<span class="w"> </span>ace1
+</span></code></pre></div>
+<p>También se pueden buscar imágenes desde consola.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>search<span class="w"> </span>ubuntu
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>NAME<span class="w">                             </span>DESCRIPTION<span class="w">                                     </span>STARS<span class="w">     </span>OFFICIAL
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>ubuntu<span class="w">                           </span>Ubuntu<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>Debian-based<span class="w"> </span>Linux<span class="w"> </span>operating<span class="w"> </span>sys…<span class="w">   </span><span class="m">16888</span><span class="w">     </span><span class="o">[</span>OK<span class="o">]</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>websphere-liberty<span class="w">                </span>WebSphere<span class="w"> </span>Liberty<span class="w"> </span>multi-architecture<span class="w"> </span>images<span class="w"> </span>…<span class="w">   </span><span class="m">298</span><span class="w">       </span><span class="o">[</span>OK<span class="o">]</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>open-liberty<span class="w">                     </span>Open<span class="w"> </span>Liberty<span class="w"> </span>multi-architecture<span class="w"> </span>images<span class="w"> </span>based…<span class="w">   </span><span class="m">64</span><span class="w">        </span><span class="o">[</span>OK<span class="o">]</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>neurodebian<span class="w">                      </span>NeuroDebian<span class="w"> </span>provides<span class="w"> </span>neuroscience<span class="w"> </span>research<span class="w"> </span>s…<span class="w">   </span><span class="m">106</span><span class="w">       </span><span class="o">[</span>OK<span class="o">]</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>ubuntu-debootstrap<span class="w">               </span>DEPRECATED<span class="p">;</span><span class="w"> </span>use<span class="w"> </span><span class="s2">&quot;ubuntu&quot;</span><span class="w"> </span>instead<span class="w">                </span><span class="m">52</span><span class="w">        </span><span class="o">[</span>OK<span class="o">]</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>ubuntu-upstart<span class="w">                   </span>DEPRECATED,<span class="w"> </span>as<span class="w"> </span>is<span class="w"> </span>Upstart<span class="w"> </span><span class="o">(</span>find<span class="w"> </span>other<span class="w"> </span>proces…<span class="w">   </span><span class="m">115</span><span class="w">       </span><span class="o">[</span>OK<span class="o">]</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>ubuntu/nginx<span class="w">                     </span>Nginx,<span class="w"> </span>a<span class="w"> </span>high-performance<span class="w"> </span>reverse<span class="w"> </span>proxy<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>we…<span class="w">   </span><span class="m">112</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>ubuntu/squid<span class="w">                     </span>Squid<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>caching<span class="w"> </span>proxy<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>Web.<span class="w"> </span>Long-t…<span class="w">   </span><span class="m">83</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>ubuntu/cortex<span class="w">                    </span>Cortex<span class="w"> </span>provides<span class="w"> </span>storage<span class="w"> </span><span class="k">for</span><span class="w"> </span>Prometheus.<span class="w"> </span>Long…<span class="w">   </span><span class="m">4</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>ubuntu/prometheus<span class="w">                </span>Prometheus<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>systems<span class="w"> </span>and<span class="w"> </span>service<span class="w"> </span>monitori…<span class="w">   </span><span class="m">56</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>ubuntu/apache2<span class="w">                   </span>Apache,<span class="w"> </span>a<span class="w"> </span>secure<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>extensible<span class="w"> </span>open-source<span class="w"> </span>HT…<span class="w">   </span><span class="m">70</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>...
+</span></code></pre></div>
+<h1 id="3-volumenes">3. Volúmenes</h1>
+<p>Los volúmenes sirven para almacenar información de manera persistente en uno o varios contenedores. Es útil para que los archivos ya estén integrados en el propio contenedor y podamos disponer de dichos archivos en diferentes contenedores diferentes.</p>
+<p>También nos permiten compartir archivos con el contenedor. Modificarlos en local y que se modifiquen en el contenedor.</p>
+<h2 id="31-operaciones-con-volumenes">3.1. Operaciones con volúmenes</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Ver disponibles</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>docker<span class="w"> </span>volume<span class="w"> </span>ls
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>DRIVER<span class="w">    </span>VOLUME<span class="w"> </span>NAME
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># Creamos un volumen</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>almacen
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>almacen
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>docker<span class="w"> </span>volume<span class="w"> </span>ls
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>DRIVER<span class="w">    </span>VOLUME<span class="w"> </span>NAME
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="nb">local</span><span class="w">     </span>almacen
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>docker<span class="w"> </span>volume<span class="w"> </span>inspect<span class="w"> </span>almacen
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="o">[</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="o">{</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">        </span><span class="s2">&quot;CreatedAt&quot;</span>:<span class="w"> </span><span class="s2">&quot;2024-02-20T11:10:58Z&quot;</span>,
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">        </span><span class="s2">&quot;Driver&quot;</span>:<span class="w"> </span><span class="s2">&quot;local&quot;</span>,
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">        </span><span class="s2">&quot;Labels&quot;</span>:<span class="w"> </span>null,
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">        </span><span class="s2">&quot;Mountpoint&quot;</span>:<span class="w"> </span><span class="s2">&quot;/var/lib/docker/volumes/almacen/_data&quot;</span>,
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">        </span><span class="s2">&quot;Name&quot;</span>:<span class="w"> </span><span class="s2">&quot;almacen&quot;</span>,
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">        </span><span class="s2">&quot;Options&quot;</span>:<span class="w"> </span>null,
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">        </span><span class="s2">&quot;Scope&quot;</span>:<span class="w"> </span><span class="s2">&quot;local&quot;</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">    </span><span class="o">}</span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="o">]</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="c1"># Lo borramos</span>
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>docker<span class="w"> </span>volume<span class="w"> </span>rm<span class="w"> </span>almacen
+</span></code></pre></div>
+<h2 id="32-ejemplo-compartir-volumenes-con-host">3.2. Ejemplo: compartir volúmenes con host</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Creamos un punto de montaje</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>/tmp/puntomontaje:/home<span class="w"> </span>ubuntu
+</span></code></pre></div>
+<h2 id="32-ejemplo-compartir-volumenes-con-contenedores">3.2. Ejemplo: compartir volúmenes con contenedores</h2>
+<p>Vamos a crear un volumen para compartir archivos entre nuestro sistema de ficheros local y 2 contenedores (ubuntu y fedora).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>almacen
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># Descargamos la imagen de ubuntu</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>docker<span class="w"> </span>pull<span class="w"> </span>ubuntu
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># Descargamos la imagen de fedora</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>docker<span class="w"> </span>pull<span class="w"> </span>fedora
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>docker<span class="w"> </span>images
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>REPOSITORY<span class="w">                             </span>TAG<span class="w">       </span>IMAGE<span class="w"> </span>ID<span class="w">       </span>CREATED<span class="w">        </span>SIZE
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>ubuntu<span class="w">                                 </span>latest<span class="w">    </span>a50ab9f16797<span class="w">   </span><span class="m">7</span><span class="w"> </span>days<span class="w"> </span>ago<span class="w">     </span><span class="m">69</span>.2MB
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>fedora<span class="w">                                 </span>latest<span class="w">    </span>46243415778a<span class="w">   </span><span class="m">2</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">   </span>259MB
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="c1">## Creamos un contenedor, modo interactivo</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>almacen:/home<span class="w"> </span>ubuntu
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1"># dentro del contenedor</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="nb">cd</span><span class="w"> </span>/home
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>touch<span class="w"> </span>prueba.txt
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="nb">exit</span><span class="w"> </span><span class="c1"># -&gt; Salimos del contenedor</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="c1">## Creamos otro contenedor, modo interactivo</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span>almacen:/home<span class="w"> </span>fedora
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="c1"># dentro del contenedor</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="nb">cd</span><span class="w"> </span>/home
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>ls<span class="w"> </span>-&gt;<span class="w"> </span>existe<span class="w"> </span>el<span class="w"> </span>archivo<span class="w"> </span>prueba.txt
+</span></code></pre></div>
+<h2 id="33-compartir-volumenes-con-contenedores-y-en-local">3.3. Compartir volumenes con contenedores y en local</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$<span class="w"> </span>docker<span class="w"> </span>volume<span class="w"> </span>ls
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>DRIVER<span class="w">    </span>VOLUME<span class="w"> </span>NAME
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nb">local</span><span class="w">     </span>almacen
+</span></code></pre></div>
+<h1 id="4-docker-compose-vs-dockerfile">4. docker-compose vs DockerFile</h1>
+<p><a href="https://blog.elhacker.net/2022/01/gestion-contenedores-dockerfile-y-docker-compose.html">https://blog.elhacker.net/2022/01/gestion-contenedores-dockerfile-y-docker-compose.html</a></p>
+<h2 id="41-diferencias">4.1. Diferencias</h2>
+<h2 id="42-docker-compose">4.2. Docker Compose</h2>
+<p>Docker Compose es una herramienta que permite simplificar el uso de Docker. A partir de archivos YAML es mas sencillo crear contenedores, conectarlos, habilitar puertos, volúmenes, etc.</p>
+<p>Con Compose puedes crear diferentes contenedores y al mismo tiempo, en cada contenedor, diferentes servicios, unirlos a un volúmen común, iniciarlos y apagarlos, etc. Es un componente fundamental para poder construir aplicaciones y microservicios</p>
+<p><strong>Parámetros docker-compose.yml</strong></p>
+<ul>
+<li><em>“</em><em>version</em><em> ‘3’</em>: Los archivos docker-compose.yml son versionados, lo que significa que es muy importante indicar la versión de las instrucciones que queremos darle. A medida de que Docker evoluciona, habrá nuevas versiones, pero de todos modos, siempre hay compatibilidad hacia atrás, al indicar la versión</li>
+<li><em>“</em><em>build</em><em> .”</em>: Se utiliza para indicar donde está el Dockerfile que queremos utilizar para crear el contenedor. Al definier “.” automáticamente considerará el Dockerfile existente en directorio actual.</li>
+<li><em>“</em><em>command</em><em>”</em>: Una vez creado el contenedor, aqui lanzamos el comando que permite ejecutar Jekyll, en modo servidor. El comando “–host 0.0.0.0” sirve para mapear el contenedor al sistema operativo host</li>
+<li><em>“</em><em>ports</em><em>”</em>: mapeamos los puertos locales, por ejemplo 4000 (webserver jekyll) y 35729 (livereload) al servidor host. Esto permite que accediendo a Localhost:4000 podamos probar el sitio generador por Jekyll</li>
+<li><em>“</em><em>volumes</em><em>”</em>: lo que hacemos es mapear el directorio local se mapee directamente con el /directoriox, lugar donde hemos creado la aplicación. De este modo, cualquier cambio en el directorio local en el host, se hará de inmediato en el contenedor.</li>
+</ul>
+<p><img alt="Untitled" src="Untitled%204.png" /></p>
+<p>Ejemplo, creación contenedor con wordpress:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>mkdir<span class="w"> </span>/tmp/wp
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">cd</span><span class="w"> </span>/tmp/wp
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>vi<span class="w"> </span>docker-compose.yml
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>version:<span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w"> </span><span class="c1"># Utilizamos la versión 3</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1">## Nos saltamos la sección network </span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>services:
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span>db:
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span>image:<span class="w"> </span>mariadb:10.3.9
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">        </span>volumes:
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">            </span>-<span class="w"> </span>data:/var/lib/mysql
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">        </span>environment:
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">            </span>-<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">            </span>-<span class="w"> </span><span class="nv">MYSQL_DATABASE</span><span class="o">=</span>wordpress
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">            </span>-<span class="w"> </span><span class="nv">MYSQL_USER</span><span class="o">=</span>manager
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">            </span>-<span class="w"> </span><span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">                </span><span class="c1">## Equivalente a</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">                </span><span class="c1">## docker run -d --name wordpress-db \</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">        </span><span class="c1">## --mount source=wordpress-db,target=/var/lib/mysql \</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">        </span><span class="c1">## -e MYSQL_ROOT_PASSWORD=secret \</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">        </span><span class="c1">## -e MYSQL_DATABASE=wordpress \</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">        </span><span class="c1">## -e MYSQL_USER=manager \</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w">        </span><span class="c1">## -e MYSQL_PASSWORD=secret mariadb:10.3.9</span>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">    </span>web:
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="w">        </span>image:<span class="w"> </span>wordpress:4.9.8
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="w">        </span>depends_on:
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">            </span>-<span class="w"> </span>db
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">        </span>volumes:
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a><span class="w">            </span>-<span class="w"> </span>./target:/var/www/html
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="w">        </span>environment:
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="w">            </span>-<span class="w"> </span><span class="nv">WORDPRESS_DB_USER</span><span class="o">=</span>manager
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="w">            </span>-<span class="w"> </span><span class="nv">WORDPRESS_DB_PASSWORD</span><span class="o">=</span>secret
+</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="w">            </span>-<span class="w"> </span><span class="nv">WORDPRESS_DB_HOST</span><span class="o">=</span>db
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="w">        </span>ports:
+</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a><span class="w">            </span>-<span class="w"> </span><span class="m">8080</span>:80
+</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="w">                </span><span class="c1">## Equivalente a</span>
+</span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a><span class="w">                </span><span class="c1">## docker run -d --name wordpress \</span>
+</span><span id="__span-17-37"><a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a><span class="w">            </span><span class="c1">## --link wordpress-db:mysql \</span>
+</span><span id="__span-17-38"><a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a><span class="w">            </span><span class="c1">## --mount type=bind,source=&quot;$(pwd)&quot;/target,target=/var/www/html \</span>
+</span><span id="__span-17-39"><a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a><span class="w">            </span><span class="c1">## -e WORDPRESS_DB_USER=manager \</span>
+</span><span id="__span-17-40"><a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a><span class="w">            </span><span class="c1">## -e WORDPRESS_DB_PASSWORD=secret \</span>
+</span><span id="__span-17-41"><a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a><span class="w">            </span><span class="c1">## -p 8080:80 \</span>
+</span><span id="__span-17-42"><a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a><span class="w">            </span><span class="c1">## wordpress:4.9.8</span>
+</span><span id="__span-17-43"><a id="__codelineno-17-43" name="__codelineno-17-43" href="#__codelineno-17-43"></a>
+</span><span id="__span-17-44"><a id="__codelineno-17-44" name="__codelineno-17-44" href="#__codelineno-17-44"></a>volumes:
+</span><span id="__span-17-45"><a id="__codelineno-17-45" name="__codelineno-17-45" href="#__codelineno-17-45"></a><span class="w">    </span>data:<span class="w"> </span><span class="c1"># creción de volumen, compose añade un prefijo por lo que se llamará worpdress_data</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Levantamos la aplicación</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="c1"># El parámetro -d es similar al de docker run: nos permite levantar los servicios en segundo plano.</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>docker-compose<span class="w"> </span>ps
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="c1">## docker-compose ps solo muestra información de los servicios que se define en docker-compose.yaml, mientras que docker muestra todos.</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="c1"># Detener servicios</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>docker-compose<span class="w"> </span>stop
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="c1"># Borrar</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>docker-compose<span class="w"> </span>down
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="c1"># Borrar volúmenes</span>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>docker-compose<span class="w"> </span>down<span class="w"> </span>-v
+</span></code></pre></div>
+<p>Cuando creamos contenedores con <code>docker</code> sin indicar un nombre, por defecto asigna uno aleatorio; mientras que en <em>Compose</em> el prefijo es el nombre del directorio y el sufijo el nombre del servicio: <strong><em>wordpress</em>*_</strong>db*<em>_1</em>. El número indica el número de instancia. Es posible levantar más de una instancia de un mismo servicio.</p>
+<p>Equivalencia de parámetros</p>
+<table>
+<thead>
+<tr>
+<th><strong>parámetro <em>Docker</em></strong></th>
+<th><strong>parámetro <em>Composer</em></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--link</td>
+<td>depends_on</td>
+</tr>
+<tr>
+<td>--mount</td>
+<td>volumes</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>environment</td>
+</tr>
+<tr>
+<td>-p,--publish</td>
+<td>ports</td>
+</tr>
+<tr>
+<td></td>
+<td>image</td>
+</tr>
+</tbody>
+</table>
+<p>Si reiniciamos el ordenador, los contenedores estarán detenidos (stop), podremos reiniciarlos con <code>docker start</code> o <code>docker-compose start</code>. Este es el comportamiento predeterminado y el que nos interesa en un entorno de desarrollo.</p>
+<p>Sin embargo, en otros entornos, o para casos concretos, igual queremos que un contenedor tenga el mismo estado en el que estaba antes de reiniciar la máquina (iniciado o parado).</p>
+<p>Para eso usaremos el parámetro <code>restart</code>. En el caso de la base de datos de nuestro ejemplo, la configuración quedaría como:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>services:
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span>db:
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">        </span>image:<span class="w"> </span>mariadb:10.3.9
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">        </span>**restart:<span class="w"> </span>unless-stopped**
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">        </span>volumes:
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">            </span>-<span class="w"> </span>data:/var/lib/mysql
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">        </span>environment:
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">            </span>-<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">            </span>-<span class="w"> </span><span class="nv">MYSQL_DATABASE</span><span class="o">=</span>wordpress
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">            </span>-<span class="w"> </span><span class="nv">MYSQL_USER</span><span class="o">=</span>manager
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">            </span>-<span class="w"> </span><span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret
+</span></code></pre></div>
+<p>Otros valores son: <code>no</code> (por defecto), <code>always</code> y <code>on-failure</code>.</p>
+<h2 id="43-dockerfile">4.3. DockerFile</h2>
+<h3 id="ejemplo-basico">Ejemplo básico</h3>
+<p>Nos ubicamos en la carpeta donde vayamos a trabajar con la imagen, por ejemplo voy a crear un directorio llamado docker-images.</p>
+<p>Y creamos una archivo Dockerfile con un editor de texto.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>FROM<span class="w"> </span>ubuntu
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>RUN<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>RUN<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python<span class="w"> </span><span class="m">3</span><span class="w"> </span>-y
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>RUN<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>netris<span class="w"> </span>-y
+</span></code></pre></div>
+<p>Creamos la imagen según las órdenes anteriores:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>python-ubuntu<span class="w"> </span>.
+</span></code></pre></div>
+<p><strong><em>Hay un error en el Dockerfile, corregir y volver a ejecutar el build.</em></strong></p>
+<p>Ya tenemos una imagen de ubuntu pero con python3 instalado:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>python-ubuntu
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>python3
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>Python<span class="w"> </span><span class="m">3</span>.10.12<span class="w"> </span><span class="o">(</span>main,<span class="w"> </span>Nov<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">2023</span>,<span class="w"> </span><span class="m">15</span>:14:05<span class="o">)</span><span class="w"> </span><span class="o">[</span>GCC<span class="w"> </span><span class="m">11</span>.4.0<span class="o">]</span><span class="w"> </span>on<span class="w"> </span>linux
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>&gt;&gt;&gt;
+</span></code></pre></div>
+<p>Una vez salimos podemos ver todas las “capas” de la imagen:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>docker<span class="w"> </span><span class="nb">history</span><span class="w"> </span>-H<span class="w"> </span>python-ubuntu
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>IMAGE<span class="w">          </span>CREATED<span class="w">         </span>CREATED<span class="w"> </span>BY<span class="w">                                      </span>SIZE<span class="w">      </span>COMMENT
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>78732fd773c4<span class="w">   </span><span class="m">2</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>RUN<span class="w"> </span>/bin/sh<span class="w"> </span>-c<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>netris<span class="w"> </span><span class="c1"># buildkit    1MB       buildkit.dockerfile.v0</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>&lt;missing&gt;<span class="w">      </span><span class="m">2</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>RUN<span class="w"> </span>/bin/sh<span class="w"> </span>-c<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>-y<span class="w"> </span><span class="c1"># buil…   29.5MB    buildkit.dockerfile.v0</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>&lt;missing&gt;<span class="w">      </span><span class="m">3</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>RUN<span class="w"> </span>/bin/sh<span class="w"> </span>-c<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="c1"># buildkit            45.1MB    buildkit.dockerfile.v0</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>&lt;missing&gt;<span class="w">      </span><span class="m">3</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span>/bin/sh<span class="w"> </span>-c<span class="w"> </span><span class="c1">#(nop)  CMD [&quot;/bin/bash&quot;]            0B</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>&lt;missing&gt;<span class="w">      </span><span class="m">3</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span>/bin/sh<span class="w"> </span>-c<span class="w"> </span><span class="c1">#(nop) ADD file:8d91b8bd386e0cc34…   69.2MB</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>&lt;missing&gt;<span class="w">      </span><span class="m">3</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span>/bin/sh<span class="w"> </span>-c<span class="w"> </span><span class="c1">#(nop)  LABEL org.opencontainers.…   0B</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>&lt;missing&gt;<span class="w">      </span><span class="m">3</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span>/bin/sh<span class="w"> </span>-c<span class="w"> </span><span class="c1">#(nop)  LABEL org.opencontainers.…   0B</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>&lt;missing&gt;<span class="w">      </span><span class="m">3</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span>/bin/sh<span class="w"> </span>-c<span class="w"> </span><span class="c1">#(nop)  ARG LAUNCHPAD_BUILD_ARCH     0B</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>&lt;missing&gt;<span class="w">      </span><span class="m">3</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span>/bin/sh<span class="w"> </span>-c<span class="w"> </span><span class="c1">#(nop)  ARG RELEASE                  0B</span>
+</span></code></pre></div>
+<h3 id="creacion-de-imagenes-propias"><strong>Creación de imágenes propias</strong></h3>
+<ul>
+<li>Para construir una imagen, se crea un <code>Dockerfile</code> con las instrucciones que especifican lo que va a ir en el entorno, dentro del contenedor (redes, volúmenes, puertos al exterior, archivos que se incluyen.</li>
+<li>Indica cómo y con qué construir la imagen.</li>
+<li>Podemos utilizar la imagen en tantos contenedores como queramos.</li>
+</ul>
+<p><img alt="Untitled" src="Untitled%205.png" /></p>
+<p>El DockerFile nos permitirá definir las funciones básicas del contenedor.</p>
+<p>Todo Dockerfile debe terminar en un comando CMD o en un ENTRYPOINT, pero en este caso, no lo utilizamos, ya que lanzaremos un comando directamente desde la receta de Docker Compose. Es decir, este Dockerfile se utiliza solamente para construir el contenedor y configurarlo. No es autoejecutable.</p>
+<h3 id="from"><strong>FROM</strong></h3>
+<p>Imagen del sistema operativo donde va a correr el contenedor.</p>
+<p>** Las versiones “Alpine linux” ocupan muy poco espacio.</p>
+<h3 id="run"><strong>RUN</strong></h3>
+<p>El comando <strong>RUN</strong> se ejecuta cuando se está construyendo una imagen personalizada para realizar una acción, creando una capa nueva. Este comando tiene el siguiente formato:</p>
+<blockquote>
+<p>RUN comando
+</p>
+<p>RUN [“ejecutable”, “parametro1”, …]
+</p>
+</blockquote>
+<p>Ejemplo en windows:</p>
+<blockquote>
+<p>RUN [“Powershell”, “Get-Services”, “*”]
+</p>
+</blockquote>
+<h3 id="copy">COPY</h3>
+<p>Sirve para copiar archivos desde nuestra máquina al contenedor. Podemos pasar un documento de texto de la máquina anfitrión al conenedor de python-ubuntu.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>FROM<span class="w"> </span>....
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>RUN<span class="w"> </span>....
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>RUN<span class="w"> </span>....
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>COPY<span class="w"> </span>prueba.txt<span class="w"> </span>/
+</span></code></pre></div>
+<p><strong><em>Volvemos a construir la imagen y accedemos a ella para buscar el archivo.</em></strong></p>
+<h3 id="env">ENV</h3>
+<p>Podemos crear una variable y enviarla a nuestro contenedor, en mi caso por ejemplo voy a definir una variable llamada contenido que va a ir dirigida a un bloc de notas que está dentro del contenedor:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>....
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>ENV<span class="w"> </span>NUEVO_PATH<span class="w"> </span>/etc
+</span></code></pre></div>
+<p>Una vez regenerado la imagen y dentro del contenedor:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$NUEVO_PATH</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>/etc
+</span></code></pre></div>
+<p>Podemos combinar RUN con ENV</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>ENV<span class="w"> </span>NUEVO_PATH<span class="w"> </span>/etc
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>RUN<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$NUEVO_PATH</span><span class="w"> </span>&gt;<span class="w"> </span>/prueba.txt
+</span></code></pre></div>
+<h3 id="workdir">WORKDIR</h3>
+<p>Nos situamos en un directorio determinado, nos puede ayudar en la copia de ficheros.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>.....
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>WORKDIR<span class="w"> </span>/home
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>COPY<span class="w"> </span>prueba.txt<span class="w"> </span>.<span class="w">  </span><span class="c1"># Lo copia en /home</span>
+</span></code></pre></div>
+<h3 id="expose">EXPOSE</h3>
+<p>Permite exponer los puertos que queramos</p>
+<h3 id="label">LABEL</h3>
+<p>Creamos etiquetas, por ejemplo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>FROM<span class="w"> </span>ubuntu
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>LABEL<span class="w"> </span><span class="nv">version</span><span class="o">=</span><span class="m">1</span>.0
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>LABEL<span class="w"> </span><span class="nv">autor</span><span class="o">=</span>JosepGarcia
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>.....
+</span></code></pre></div>
+<h3 id="user">USER</h3>
+<p>Sirve para establecer el usuario, debe existir. (Por defecto se utiliza root).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>....
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>RUN<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>whoami<span class="k">)</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/usuarioantes.txt
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>RUN<span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>josepgarcia
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>USER<span class="w"> </span>josepgarcia
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>WORKDIR<span class="w"> </span>/home/josepgarcia
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>RUN<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>whoami<span class="k">)</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/usuarioahora.txt
+</span></code></pre></div>
+<h3 id="cmd"><strong>CMD</strong></h3>
+<p>Ejecuta comandos una vez se ha inicializado el conenedor (RUN se utiliza para crear la imagen de un contenedor).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c1">## Ejecutamos el comando top cuando se inicie el contenedor</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>.....
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>CMD<span class="w"> </span>top
+</span></code></pre></div>
+<h3 id="ignore">IGNORE</h3>
+<p>Sirve para ignorar aquello que tengamos en nuestro directorio actual.</p>
+<p>Por ejemplo:</p>
+<p>Creamos una imagen que copie todo nuestro directorio actual al contenedor.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>ls
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w"> </span>Dockerfile<span class="w">  </span><span class="w"> </span>prueba.txt
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>vi<span class="w"> </span>Dockerfile
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>...
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>COPY<span class="w"> </span>.<span class="w"> </span>/tmp
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>...
+</span></code></pre></div>
+<p>Ahora le decimos que copie todo menos el archivo Dockerfile, para ello creamos un fichero llamado <code>.dockerignore</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>vi<span class="w"> </span>.dockerignore
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>Dockerfile
+</span></code></pre></div>
+<p><strong>Ejercicio1.</strong></p>
+<p>Modificar Dockerfile para que el usuario creado anteriormente pueda ejectuar sudo.</p>
+<hr />
+<hr />
+<p>PENDENT</p>
+<hr />
+<hr />
+<h3 id="entrypoint"><strong>ENTRYPOINT</strong></h3>
+<p>Este comando se ejecuta cuando se quiere ejecutar un ejecutable en el contenedor en su arranque. Los ejemplos tipo de su uso, son cuando se quiere levantar un servidor web, una base de datos, etc ….</p>
+<p>Este comando tiene dos sintaxis:</p>
+<blockquote>
+<p>ENTRYPOINT [“comando”, “Parametro1”, “Parametro2”, …]
+</p>
+</blockquote>
+<p>Esta es la forma recomendada.</p>
+<blockquote>
+<p>ENTRYPOINT comando parametro1 parametro2
+</p>
+</blockquote>
+<p>Con esta forma el comando se ejecuta en la Shell del contenedor.</p>
+<p><strong>Utilización de varios comandos de forma conjunta</strong></p>
+<p>Como se ha comentado anteriormente el comando CMD se puede utilizar para pasar parámetros al comando ENRYPOINT. Una posible forma de realizarlo es:</p>
+<blockquote>
+<p>ENRYPOINT [“Powershell”, “Get-Services”]CMD [“MySql]
+</p>
+</blockquote>
+<p>En el ejemplo, se está invocando al comando Get-Services para recuperar información de los servicios Windows y como en el comando CMD se está indicando el servicio en concreto del que se quiere recuperar la información que en este caso es del servicio Windows de MySql.</p>
+<p><strong>Nota</strong>: cuando los comandos o parámetros son pasados entre corchetes siempre van entre comillas. Esto es porque el comando correspondiente lo interpreta como una cadena JSON.</p>
+<h1 id="5-casos-de-uso">5. Casos de uso</h1>
+<h2 id="compatibilidad-de-codigo-entre-diferentes-versiones-de-un-lenguaje">Compatibilidad de código entre diferentes versiones de un lenguaje</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>mkdir<span class="w"> </span>/tmp/php
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="nb">cd</span><span class="w"> </span>/tmp/php
+</span></code></pre></div>
+<p>Crear el siguiente archivo (test.php)</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="c1">// Funciona bien en php5 ya que list hace la asignación desde el último al primero</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="c1">// En PHP 5, list() asigna los valores empezando desde el parámetro más a la derecha. En PHP 7, list() empieza desde el parámetro más a la izquierda.</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="c1">// https://www.php.net/manual/es/function.list.php</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="nv">$info</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;cafeína&#39;</span><span class="p">,</span><span class="s1">&#39;marrón&#39;</span><span class="p">,</span> <span class="s1">&#39;café&#39;</span><span class="p">);</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="c1">// Enumerar todas las variables</span>
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="k">list</span><span class="p">(</span><span class="nv">$datos</span><span class="p">[],</span> <span class="nv">$datos</span><span class="p">[],</span> <span class="nv">$datos</span><span class="p">[])</span> <span class="o">=</span> <span class="nv">$info</span><span class="p">;</span>
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="k">echo</span> <span class="s2">&quot;El </span><span class="si">$datos[0]</span><span class="s2"> es </span><span class="si">$datos[1]</span><span class="s2"> y la </span><span class="si">$datos[2]</span><span class="s2"> lo hace especial.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>A continuación vamos a crear dos contenedores que sirva este código usando imágenes distintas , para cada versión de PHP y usando puertos distintos para acceder a cada versión de la aplicación:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8081</span>:80<span class="w"> </span>--name<span class="w"> </span>php56<span class="w"> </span>-v<span class="w"> </span>/tmp/php:/var/www/html:ro<span class="w"> </span>php:5.6-apache
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="c1">## Accedemos al contenedor: docker exec -it eb326ffd1b66 /bin/bash</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="c1">## Ejecutamos test.php</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>**docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8082</span>:80<span class="w"> </span>--name<span class="w"> </span>php74<span class="w"> </span>-v<span class="w"> </span>/tmp/php:/var/www/html:ro<span class="w"> </span>php:7.4-apache**
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="c1">## Ejecutamos test.php desde web</span>
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="c1">## http://localhost:8082/test.php</span>
+</span></code></pre></div>
+<h2 id="crear-una-imagen-de-un-repositorio-de-github">Crear una imagen de un repositorio de github</h2>
+<p>Ejemplo repositorio:</p>
+<p><a href="https://github.com/k4m4/kickthemout">https://github.com/k4m4/kickthemout</a></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>FROM<span class="w"> </span>ubuntu:focal
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>RUN<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>-y
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>RUN<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>git
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>RUN<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-pip
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>RUN<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/k4m4/kickthemout.git
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>WORKDIR<span class="w"> </span>/kickthemout
+</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>
+</span><span id="__span-37-10"><a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>RUN<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-37-11"><a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>
+</span><span id="__span-37-12"><a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>CMD<span class="w"> </span>python3<span class="w"> </span>kickthemout.py
+</span></code></pre></div>
+<h2 id="aplicacion-de-python-dentro-de-un-contenedor">Aplicación de python dentro de un contenedor</h2>
+<h2 id="crear-una-imagen-personalizada-pendiente">Crear una imagen personalizada  — PENDIENTE —</h2>
+<p><a href="https://jolthgs.wordpress.com/2019/09/25/create-a-debian-container-in-docker-for-development/">https://jolthgs.wordpress.com/2019/09/25/create-a-debian-container-in-docker-for-development/</a></p>
+<p>Para crear una imagen personalizada utilizaremos el contenedor que habíamos creado en el punto 1, con una debian actualizada y con un fichero de texto prueba.txt</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="c1"># Iniciamos el contenedor</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>docker<span class="w"> </span>start<span class="w"> </span>debian-mini
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>docker<span class="w"> </span>ps
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">            </span>COMMAND<span class="w">          </span>CREATED<span class="w">          </span>STATUS<span class="w">         </span>PORTS<span class="w">     </span>NAMES
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>97d8dc048093<span class="w">   </span>debian:10-slim<span class="w">   </span><span class="s2">&quot;/bin/bash -l&quot;</span><span class="w">   </span><span class="m">10</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">2</span><span class="w"> </span>seconds<span class="w">             </span>debian-mini
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="c1"># Entramos en el contenedor iniciado</span>
+</span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>debian-mini<span class="w"> </span>bash
+</span><span id="__span-38-10"><a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a>
+</span><span id="__span-38-11"><a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a><span class="c1"># Instalamos paquetes</span>
+</span><span id="__span-38-12"><a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a>apt<span class="w"> </span>install<span class="w"> </span>netris<span class="w"> </span>sl<span class="w"> </span>ninvaders
+</span><span id="__span-38-13"><a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a>
+</span><span id="__span-38-14"><a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a><span class="c1"># ¿Dónde están?</span>
+</span><span id="__span-38-15"><a id="__codelineno-38-15" name="__codelineno-38-15" href="#__codelineno-38-15"></a>find<span class="w"> </span>/<span class="w"> </span>-name<span class="w"> </span>ninvaders
+</span><span id="__span-38-16"><a id="__codelineno-38-16" name="__codelineno-38-16" href="#__codelineno-38-16"></a>
+</span><span id="__span-38-17"><a id="__codelineno-38-17" name="__codelineno-38-17" href="#__codelineno-38-17"></a>ls<span class="w"> </span>/usr/games
+</span><span id="__span-38-18"><a id="__codelineno-38-18" name="__codelineno-38-18" href="#__codelineno-38-18"></a>
+</span><span id="__span-38-19"><a id="__codelineno-38-19" name="__codelineno-38-19" href="#__codelineno-38-19"></a><span class="c1"># Salimos</span>
+</span><span id="__span-38-20"><a id="__codelineno-38-20" name="__codelineno-38-20" href="#__codelineno-38-20"></a>control<span class="w"> </span>+<span class="w"> </span>d
+</span><span id="__span-38-21"><a id="__codelineno-38-21" name="__codelineno-38-21" href="#__codelineno-38-21"></a>
+</span><span id="__span-38-22"><a id="__codelineno-38-22" name="__codelineno-38-22" href="#__codelineno-38-22"></a><span class="c1"># Nuestra imagen</span>
+</span><span id="__span-38-23"><a id="__codelineno-38-23" name="__codelineno-38-23" href="#__codelineno-38-23"></a>docker<span class="w"> </span>image<span class="w"> </span>ls
+</span><span id="__span-38-24"><a id="__codelineno-38-24" name="__codelineno-38-24" href="#__codelineno-38-24"></a>REPOSITORY<span class="w">                             </span>TAG<span class="w">       </span>IMAGE<span class="w"> </span>ID<span class="w">       </span>CREATED<span class="w">        </span>SIZE
+</span><span id="__span-38-25"><a id="__codelineno-38-25" name="__codelineno-38-25" href="#__codelineno-38-25"></a>debian<span class="w">                                 </span><span class="m">10</span>-slim<span class="w">   </span>6016bddc4bad<span class="w">   </span><span class="m">9</span><span class="w"> </span>days<span class="w"> </span>ago<span class="w">     </span><span class="m">63</span>.5MB
+</span></code></pre></div>
+<h2 id="otro-nombre-para-dockerfile">Otro nombre para Dockerfile</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-f<span class="w"> </span>**otronombre**<span class="w"> </span>.
+</span></code></pre></div>
+<h1 id="6-copias-de-seguridad">6. Copias de seguridad</h1>
+<h2 id="copias-de-contenedores">Copias de contenedores</h2>
+<p>Ya estén encendidos o apagados, podemos realizar respaldos de seguridad de los contenedores. Utilizando la opción “<em>export</em>” empaquetará el contenido, generando un fichero con extensión “.<em>tar</em>” de la siguiente manera:</p>
+<blockquote>
+<p>docker export -o fichero-resultante.tar nombre-contenedor
+</p>
+</blockquote>
+<p>o</p>
+<blockquote>
+<p>docker export nombre-contenedor &gt; fichero-resultante.tar
+</p>
+</blockquote>
+<h2 id="restauracion-de-copias-de-seguridad-de-contenedores"><strong>Restauración de copias de seguridad de contenedores</strong></h2>
+<p>Hay que tener en cuenta, antes de nada, que no es posible restaurar el contenedor directamente, de forma automática. En cambio, sí podemos crear una imagen, a partir de un respaldo de un contenedor, mediante el parámetro “<em>import</em>” de la siguiente manera:</p>
+<blockquote>
+<p>docker import fichero-backup.tar nombre-nueva-imagen
+</p>
+</blockquote>
+<h2 id="copias-de-imagenes"><strong>Copias de imágenes</strong></h2>
+<p>Aunque no tiene mucho sentido por que se bajan muy rápido, también tenemos la posibilidad de realizar copias de seguridad de imágenes. El proceso se realiza al utilizar el parámetro ‘<em>save</em>‘, que empaquetará el contenido y generará un fichero con extensión “<em>tar</em>“, así:</p>
+<blockquote>
+<p>docker save nombre_imagen &gt; imagen.tar
+</p>
+</blockquote>
+<p>o</p>
+<blockquote>
+<p>docker save -o imagen.tar nombre_imagen
+</p>
+</blockquote>
+<h2 id="restaurar-copias-de-seguridad-de-imagenes"><strong>Restaurar copias de seguridad de imágenes</strong></h2>
+<p>Con el parámetro ‘load’, podemos restaurar copias de seguridad en formato ‘.tar’ y de esta manera recuperar la imagen.</p>
+<blockquote>
+<p>docker load -i fichero.tar
+</p>
+</blockquote>
+<h1 id="7-contenedores-ejemplo">7. Contenedores ejemplo</h1>
+<p><strong>netdata</strong></p>
+<p>Nginx Proxy Manager - acceso https con certificados válidos para mi red local, no la tengo abierta al exterior.</p>
+<p>Jellyfin - multimedia</p>
+<p>Nextcloud - nube</p>
+<p>Syncserver - sincronizar datos de firefox entre dispositivos (este está absoleto, publicaron otra herramienta pero hay poca información y aún no he conseguido hacerla funcionar)</p>
+<p>Vaultwarden - contraseñas</p>
+<p>Camera.ui - Para ver las cámaras e integrarlas en la casa de Apple.</p>
+<p>Homebridge - para poder usar dispositivos no compatibles en la casa de Apple</p>
+<p>HomeAssistant - ahora mismo la uso poco porque uso más la de Apple, pero sería el equivalente en software libre</p>
+<p>Portainer - para gestionar los contenedores</p>
+<p>Photoprism - para ver las fotos</p>
+<p>Homepage - como página de inicio con los contenedores y demás aplicaciones instaladas en el nas</p>
+<p>soulseek - para música</p>
+<p>youtubedl - para bajar musica de youtube</p>
+<p>glances - para ver informacion del estado del servidor vía web</p>
+<p>linkding - para guardar enlaces</p>
+<p>acestream - para ver canales en jellyfin</p>
+<p>gitbucket - para listas de acestream y de pihole</p>
+<p>libreddit - reedit sin publicidad (aunque en modo sólo lectura, no se puede enviar contenido)</p>
+<p>invidious - para ver youtube</p>
+<p>uptime kuma - para ver si alguno de los contenedores o aplicaciones se caen</p>
+<p>searxng - un metabuscador para tener google, duckdns y otros en un mismo sitio</p>
+<p>watchtower - para actualizar automáticamente algunos contenedores</p>
+<h1 id="8-ejercicios">8. Ejercicios</h1>
+<h2 id="python">Python</h2>
+<p>Crea 2 contenedores, uno con python 3.11 y otro con python 3.9</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>python3.11<span class="w"> </span>-v<span class="w"> </span>/tmp/php:/app<span class="w"> </span>python:3.11
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Josep Garcia Garcia | <a href="https://github.com/josepgarcia/BigDataAplicado24-25" target="_blank">https://github.com/josepgarcia/BigDataAplicado24-25</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

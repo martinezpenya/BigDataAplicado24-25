@@ -1,0 +1,870 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD02/1.instalacion/">
+      
+      
+        <link rel="prev" href="../../UD00/8.EntornosVirtualesPython/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Instalación - Big Data Aplicado 2024-25</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hdfs-cluster-hadoop-pseudodistribuido" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Big Data Aplicado 2024-25
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Instalación
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Big Data Aplicado 2024-25
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    INICIO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 00 Conceptos Generales
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            UD 00 Conceptos Generales
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/1.ConceptosGenerales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conceptos Generales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/2.bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    $_bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/8.EntornosVirtualesPython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python venv
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 02 Cluster Pseudo. HDFS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            UD 02 Cluster Pseudo. HDFS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Instalación
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Instalación
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-configuracion-del-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación / configuración del cluster
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creación / configuración del cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      core-site.xml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdfs-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      hdfs-site.xml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hadoop-envsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      hadoop-env.sh
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directorios-y-sistema-de-ficheros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directorios y sistema de ficheros
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arrancamos-hdfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arrancamos HDFS
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-configuracion-del-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación / configuración del cluster
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creación / configuración del cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      core-site.xml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdfs-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      hdfs-site.xml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hadoop-envsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      hadoop-env.sh
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directorios-y-sistema-de-ficheros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directorios y sistema de ficheros
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arrancamos-hdfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arrancamos HDFS
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD02/1.instalacion.md" title="Editar esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="hdfs-cluster-hadoop-pseudodistribuido">HDFS. Cluster Hadoop pseudodistribuido.</h1>
+<p>ℹ️ También conocido como Cluster de un solo nodo. Como solo tenemos un nodo, el mismo nodo será el maestro y el esclavo (no pasará nunca en producción ya que siempre tendremos un maestro y varios esclavos).</p>
+<h2 id="creacion-configuracion-del-cluster">Creación / configuración del cluster</h2>
+<p>Como usuario <code>hadoop</code></p>
+<p>Accedemos por ssh a la máquina virtual en la que habíamos descomprimido hadoop.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>/opt/hadoop/etc/hadoop/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>$<span class="w"> </span>ls
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>capacity-scheduler.xml<span class="w">      </span>hadoop-user-functions.sh.example<span class="w">  </span>kms-log4j.properties<span class="w">        </span>ssl-client.xml.example
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>configuration.xsl<span class="w">           </span>hdfs-rbf-site.xml<span class="w">                 </span>kms-site.xml<span class="w">                </span>ssl-server.xml.example
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>container-executor.cfg<span class="w">      </span>**hdfs-site.xml**<span class="w">                     </span>log4j.properties<span class="w">            </span>user_ec_policies.xml.template
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>**core-site.xml**<span class="w">               </span>httpfs-env.sh<span class="w">                     </span>mapred-env.cmd<span class="w">              </span>workers
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>hadoop-env.cmd<span class="w">              </span>httpfs-log4j.properties<span class="w">           </span>mapred-env.sh<span class="w">               </span>yarn-env.cmd
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>hadoop-env.sh<span class="w">               </span>httpfs-site.xml<span class="w">                   </span>mapred-queues.xml.template<span class="w">  </span>yarn-env.sh
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>hadoop-metrics2.properties<span class="w">  </span>kms-acls.xml<span class="w">                      </span>**mapred-site.xml**<span class="w">             </span>yarnservice-log4j.properties
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>hadoop-policy.xml<span class="w">           </span>kms-env.sh<span class="w">                        </span>shellprofile.d<span class="w">              </span>**yarn-site.xml**
+</span></code></pre></div>
+<p>Ficheros más importantes.</p>
+<p>core-site.xml → configuración general del cluster.</p>
+<p>hdfs-site.xml → configuración sistema de ficheros hdfs.</p>
+<p>mapred-site.xml → configuración de mapreduce.</p>
+<p>yarn-site.xml → configuración del modo de trabajo del proceso yarn.</p>
+<h3 id="core-sitexml">core-site.xml</h3>
+<p>Inicialmente está vacío.</p>
+<p>Lo modificamos para indicarle:</p>
+<p>name → Qué sistema de fichero vamos a utilizar en hadoop (por defecto hdfs, hay otros).</p>
+<p>value → Dónde se encuentra el servidor maestro que va a contener los datos (Namenode)</p>
+<p>estará en nodo1 (la máquina donde me encuentro, puerto 9000)</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;configuration&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>fs.defaultFS<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>hdfs://HOSTNAME:9000<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nt">&lt;/configuration&gt;</span>
+</span></code></pre></div>
+<h3 id="hdfs-sitexml">hdfs-site.xml</h3>
+<p>dfs.replication → Por defecto cada bloque se replica 3 veces, como tenemos 1 nodo, indicamos que solo hay 1 nodo que no replique.</p>
+<p>dfs.namenode.name.dir → Dónde se encuentra la información del maestro (los metadatos que guarda el maestro).</p>
+<p>Solo se indica en los clusters “maestro”, pero como estamos haciendo un cluster pseudodistribuido lo indicamos.</p>
+<p>dfs.datanode.data.dir → En cada esclavo dónde se guardan los datos.</p>
+<p>Solo se indica en los clusters “esclavos”, pero como estamos haciendo un cluster pseudodistribuido lo indicamos.</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;configuration&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.replication<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>1<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.namenode.name.dir<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>/datos/namenode<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.datanode.data.dir<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>/datos/datanode<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="nt">&lt;/configuration&gt;</span>
+</span></code></pre></div>
+<h3 id="hadoop-envsh">hadoop-env.sh</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/java-17-openjdk-amd64
+</span></code></pre></div>
+<h2 id="directorios-y-sistema-de-ficheros">Directorios y sistema de ficheros</h2>
+<ol>
+<li>Creamos los directorios configurados en el punto anterior</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/datos/namenode
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>/datos/datanode
+</span></code></pre></div>
+<ol>
+<li>Cambiamos el propietario y grupo de /datos a <code>hadoop</code>.</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/datos
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>total<span class="w"> </span><span class="m">16</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>drwxr-xr-x<span class="w">  </span><span class="m">4</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>.
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>drwxr-xr-x<span class="w"> </span><span class="m">19</span><span class="w"> </span>root<span class="w">   </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>..
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>datanode
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>namenode
+</span></code></pre></div>
+<ol>
+<li>Creamos el sistema de ficheros del namenode (lo creará donde le hemos indicado en el xml).</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Formateamos el namenode</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>$<span class="w"> </span>hdfs<span class="w"> </span>namenode<span class="w"> </span>-format
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Podemos de ver lo que ha creado...</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>$<span class="w"> </span>ls<span class="w"> </span>/datos/namenode/*
+</span></code></pre></div>
+<h2 id="arrancamos-hdfs">Arrancamos HDFS</h2>
+<p>ℹ️ Hadoop tiene dos partes: DATOS y PROCESOS, actualmente estamos trabajando en la parte de DATOS.</p>
+<p>Arrancamos los procesos de HDFS. Debe arrancar el NAMENODE, el SECONDARY NAMENODE y el DATANODE.</p>
+<p>Vamos a la carpeta <code>sbin</code> dentro de hadoop.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/opt/hadoop/sbin/
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>$<span class="w"> </span>start-dfs.sh
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># 1. Arranca namenode</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># 2. Arranca datanode</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># 3. Arranca secondarynamenode</span>
+</span></code></pre></div>
+<p>Dentro de las JDK de java, tenemos un comando para ver los procesos java en ejecución:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>jps
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="m">3218</span><span class="w"> </span>DataNode
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="m">3143</span><span class="w"> </span>NameNode
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="m">3592</span><span class="w"> </span>Jps
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="m">3485</span><span class="w"> </span>SecondaryNameNode
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># También podemos utilizar</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>$<span class="w"> </span>ps<span class="w"> </span>-fe<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>java
+</span></code></pre></div>
+<p>Comprobamos las carpetas de datos</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>ls<span class="w"> </span>/datos/namenode/
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>current<span class="w">  </span>in_use.lock
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Ahora esta carpeta ya tiene datos</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>$<span class="w"> </span>ls<span class="w"> </span>-a<span class="w"> </span>/datos/datanode/
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>.<span class="w">  </span>..<span class="w">  </span>current<span class="w">  </span>in_use.lock
+</span></code></pre></div>
+<p>También podemos acceder a la web de Administración para ver el resultado.</p>
+<p>Hadoop 2 → Puerto 50070</p>
+<p>Hadoop 3 → Puerto 9870</p>
+<p>Podemos acceder a la web de administración a través de:</p>
+<p>http://HOSTNAME_O_IP:PUERTO</p>
+<p><a href="http://192.168.64.14:9870/">http://192.168.64.14:9870/</a></p>
+<p><a href="http://debianh:9864/">http://debianh:9864/</a> → Menos opciones</p>
+<p><img alt="" src="../images/instalacion1.png" />
+<img alt="" src="../images/instalacion2.png" /></p>
+<h1 id="3-trabajar-con-hfs">3. Trabajar con HFS</h1>
+<p>En <code>/datos/namenode/current</code> hay 3 tipos de ficheros:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">42</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">09</span>:09<span class="w"> </span>edits_0000000000000000001-0000000000000000002
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">42</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">10</span>:09<span class="w"> </span>edits_0000000000000000003-0000000000000000004
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">42</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>edits_0000000000000000005-0000000000000000006
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">1048576</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>edits_inprogress_0000000000000000007
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">     </span><span class="m">401</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">10</span>:09<span class="w"> </span>fsimage_0000000000000000004
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">62</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">10</span>:09<span class="w"> </span>fsimage_0000000000000000004.md5
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">     </span><span class="m">401</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>fsimage_0000000000000000006
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">62</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>fsimage_0000000000000000006.md5
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">       </span><span class="m">2</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>seen_txid
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">     </span><span class="m">214</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:35<span class="w"> </span>VERSION
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>cat<span class="w"> </span>VERSION
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1">#Thu Oct 26 08:35:28 CEST 2023</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nv">namespaceID</span><span class="o">=</span><span class="m">623528578</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nv">blockpoolID</span><span class="o">=</span>BP-1493409649-127.0.1.1-1698302128453
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="nv">storageType</span><span class="o">=</span>NAME_NODE
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nv">cTime</span><span class="o">=</span><span class="m">1698302128453</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nv">clusterID</span><span class="o">=</span>CID-ca9bde81-b05d-4fcc-8c4c-b54887eada3b
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="nv">layoutVersion</span><span class="o">=</span>-66
+</span></code></pre></div>
+<p>Si paramos el cluster con <code>stop-dfs.sh</code> y lo volvemos a arrancar los números en los nombres de ficheros incrementan.</p>
+<ul>
+<li>edits_*: cambios dentro de la base de datos de HDFS.</li>
+<li>edits_inprogress_*: lo que se está escribiendo en este momento.</li>
+<li>fsimage_*: copia “foto”, de un momento en el tiempo del sistema de ficheros.</li>
+<li><strong>Fichero VERSION</strong><ol>
+<li><strong><code>namespaceID</code></strong>: identificador único para el sistema de archivos HDFS en un clúster. Este identificador se utiliza para distinguir entre diferentes instancias del sistema de archivos HDFS en clústeres distintos. Cada clúster de Hadoop debe tener un <strong><code>namespaceID</code></strong> único para evitar conflictos. Si clonas o replica un clúster Hadoop, es importante que el <strong><code>namespaceID</code></strong> sea diferente en cada clúster para que no haya confusiones.</li>
+<li><strong><code>blockpoolID</code></strong>: identificador único para el "block pool" en HDFS. El "block pool" es una colección de bloques de datos que se utilizan para almacenar los datos de los archivos en HDFS. Cada "block pool" tiene su propio <strong><code>blockpoolID</code></strong>, que se utiliza para diferenciar entre múltiples "block pools" en el mismo clúster. Esto es importante para la escalabilidad y la administración de bloques en el sistema de archivos.</li>
+<li><strong><code>clusterID</code></strong>: identificador único para el clúster Hadoop. Este valor se utiliza para identificar un clúster específico y es importante para asegurarse de que los nodos del clúster se estén conectando al clúster correcto. El <strong><code>clusterID</code></strong> es necesario para garantizar que no haya problemas de conexión entre nodos cuando hay varios clústeres en la misma red o en escenarios de recuperación de desastres.</li>
+</ol>
+</li>
+</ul>
+<h1 id="09-errores">09. Errores</h1>
+<p><strong>Permission denied: user=dr.who, access=WRITE, inode="/":hadoop:supergroup:drwxr-xr-x</strong>
+<img alt="" src="../images/instalacion3.png" /></p>
+<p><strong>Failed to retrieve data from /webhdfs/v1/?op=LISTSTATUS: Server Error</strong></p>
+<p>PROBLEMA con la versión de JAVA, java 17.</p>
+<ul>
+<li>Eliminar versión de JAVA.</li>
+<li>Instalar versión 11.</li>
+</ul>
+<p>Se puede descargar desde:</p>
+<p><a href="https://cfdownload.adobe.com/pub/adobe/coldfusion/java/java11/java11020/jdk-11.0.20_linux-x64_bin.deb">https://cfdownload.adobe.com/pub/adobe/coldfusion/java/java11/java11020/jdk-11.0.20_linux-x64_bin.deb</a></p>
+<p><a href="https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6">https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6</a></p>
+<p>Posible causa, no hay datanodes corriendo.</p>
+<p>There are 0 datanode(s) running and 0 node(s) are excluded in this operation.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span>jps
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="m">1040</span><span class="w"> </span>SecondaryNameNode
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="m">797</span><span class="w"> </span>NameNode
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="m">1277</span><span class="w"> </span>Jps
+</span></code></pre></div>
+<p>En el log de datanode: <code>$ tail -f logs/hadoop-hadoop-datanode-debianh.log</code></p>
+<p>2023-10-26 18:24:38,407 ERROR org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block pool (Datanode Uuid 6dfbb007-34b1-4a07-a045-274aad0e2936) service to debianh/127.0.1.1:9000. Exiting.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>hdfs<span class="w"> </span>fsck<span class="w"> </span>/<span class="w"> </span>-includeSnapshots
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># Borramos la carpeta current del namenode</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/datos/datanode/current
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># Iniciamos datenode unicamente</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>$<span class="w"> </span>hdfs<span class="w"> </span>--daemon<span class="w"> </span>start<span class="w"> </span>datanode
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>$<span class="w"> </span>jps
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="m">2688</span><span class="w"> </span>NameNode
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="m">3486</span><span class="w"> </span>DataNode
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="m">3582</span><span class="w"> </span>Jps
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1"># Cuando ya no caiga DataNode</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>$<span class="w"> </span>start-all.sh
+</span></code></pre></div>
+<p>Si analizamos la petición desde el inspector de html, vemos que:</p>
+<p><img alt="" src="../images/instalacion4.png" /></p>
+<p><strong>Error: WARN util.NativeCodeLoader</strong></p>
+<p><img alt="" src="../images/instalacion5.png" /></p>
+<p>No encuentra librerías nativas, no importa, es un warning (podría ir más lento debido a este error)</p>
+<p>Para eliminar el warning hay que añadir en .bashrc</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_HOME_WARN_SUPRESS</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_ROOT_LOGGER</span><span class="o">=</span><span class="s2">&quot;WARN,DRFA&quot;</span>
+</span></code></pre></div>
+<p>O recompilar hadoop…</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Josep Garcia Garcia | <a href="https://github.com/josepgarcia/BigDataAplicado24-25" target="_blank">https://github.com/josepgarcia/BigDataAplicado24-25</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

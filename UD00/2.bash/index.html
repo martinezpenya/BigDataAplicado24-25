@@ -1,0 +1,1369 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD00/2.bash/">
+      
+      
+        <link rel="prev" href="../1.ConceptosGenerales/">
+      
+      
+        <link rel="next" href="../8.EntornosVirtualesPython/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>$_bash - Big Data Aplicado 2024-25</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ud00-1-terminal" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Big Data Aplicado 2024-25
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              $_bash
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Big Data Aplicado 2024-25
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    INICIO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 00 Conceptos Generales
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            UD 00 Conceptos Generales
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.ConceptosGenerales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conceptos Generales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    $_bash
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.EntornosVirtualesPython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python venv
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 02 Cluster Pseudo. HDFS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            UD 02 Cluster Pseudo. HDFS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD02/1.instalacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD00/2.bash.md" title="Editar esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="ud00-1-terminal">UD00 1. Terminal</h1>
+<h1 id="1-introduccion">1. Introducción</h1>
+<p>La línea de comandos de Linux, también conocida como terminal o <strong>shell</strong>, es una herramienta esencial en el mundo de la informática y la administración de sistemas. Ofrece un entorno de texto en el que los usuarios pueden interactuar con el sistema operativo mediante comandos escritos en lugar de utilizar una interfaz gráfica de usuario.</p>
+<p><strong>¿Por qué aprender la línea de comandos de Linux?</strong></p>
+<ol>
+<li><strong>Control Total:</strong> La línea de comandos proporciona un control preciso sobre el sistema, permitiéndote realizar tareas específicas con gran flexibilidad.</li>
+<li><strong>Automatización:</strong> Automatizar tareas repetitivas mediante scripts, lo que ahorra tiempo y reduce errores.</li>
+<li><strong>Administración del Sistema:</strong> Gestionar servidores y recursos de manera eficiente.</li>
+<li><strong>Recuperación y Resolución de Problemas:</strong> En situaciones de recuperación de datos o resolución de problemas, la línea de comandos es una herramienta valiosa.</li>
+</ol>
+<p><strong>Conceptos Básicos:</strong></p>
+<ul>
+<li><strong>Comandos:</strong> Son instrucciones específicas que se ingresan en la línea de comandos para realizar tareas, como crear archivos, mover carpetas o mostrar información del sistema.</li>
+<li><strong>Argumentos:</strong> Son datos adicionales necesarios para que el comando funcione correctamente.</li>
+<li><strong>Directorio Actual:</strong> Especifica el contexto de trabajo actual.</li>
+<li><strong>Rutas:</strong> Se utilizan para especificar la ubicación de archivos y directorios en el sistema.</li>
+</ul>
+<p><strong>Primeros Pasos:</strong></p>
+<ol>
+<li><strong>Abrir la Terminal:</strong> En la mayoría de las distribuciones de Linux, puedes abrir la terminal desde el menú de aplicaciones o utilizando combinaciones de teclas como "Ctrl + Alt + T".</li>
+<li><strong>Uso de comandos:</strong> Utiliza comandos como <strong><code>ls</code></strong> (listar), <strong><code>echo</code></strong> (imprimir por pantalla) y <strong><code>pwd</code></strong> (imprimir directorio de trabajo) para explorar el sistema de archivos.</li>
+<li><strong>Ayuda y Manuales:</strong> <strong><code>man ls</code></strong> muestra el manual para el comando <strong><code>ls</code></strong>.</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>ls
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>$<span class="w"> </span><span class="nb">pwd</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;HOLA&quot;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>$<span class="w"> </span>man<span class="w"> </span>ls
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>$<span class="w"> </span>ls<span class="w"> </span>-la
+</span></code></pre></div>
+<p><strong>Tipos de shell:</strong></p>
+<p><strong>Bash</strong> (Bourne Again Shell): Es el shell más común en Linux y es ampliamente utilizado. Ofrece una amplia gama de características, incluyendo autocompletado de comandos, historial de comandos, y scripts para automatizar tareas.</p>
+<p><strong>Zsh</strong> (Z Shell): Es una extensión de Bash con características adicionales, como sugerencias interactivas y personalización avanzada. Se ha vuelto popular entre los usuarios avanzados.</p>
+<p><strong>Fish</strong> es conocido por su facilidad de uso y su sintaxis más intuitiva. Ofrece sugerencias de comandos en tiempo real y es ideal para principiantes.</p>
+<h2 id="11-archivos-carpetas-y-enlaces">1.1. Archivos, carpetas y enlaces</h2>
+<p><strong>1. Archivos:</strong></p>
+<ul>
+<li>Los archivos son unidades básicas de almacenamiento que contienen datos, programas o información.</li>
+<li>Pueden ser de diferentes tipos, como archivos de texto, binarios, de configuración, etc.</li>
+<li>Los archivos se identifican por su nombre y <strong>extensión (opcional).</strong></li>
+<li>Algunos comandos: <strong><code>cat</code></strong>, <strong><code>touch</code></strong>, <strong><code>cp</code></strong>, <strong><code>mv</code></strong>, <strong><code>rm</code></strong>, <strong><code>head</code></strong> y <strong><code>tail</code></strong>.</li>
+<li>Se pueden crear archivos o directorios “ocultos” si su nombre empieza por punto (.), ejemplo: .config</li>
+</ul>
+<p><strong>2. Carpetas (Directorios):</strong></p>
+<ul>
+<li>Las carpetas, también llamadas directorios, son contenedores utilizados para organizar y agrupar archivos y otras carpetas.</li>
+<li>Se utilizan para crear una estructura jerárquica en el sistema de archivos.</li>
+<li>Se utilizan comandos como: <strong><code>mkdir</code></strong>, <strong><code>rmdir</code></strong>, <strong><code>cd</code></strong> y <strong><code>pwd</code></strong>.</li>
+</ul>
+<p><strong>3. Carpetas ESPECIALES:</strong></p>
+<p>Todas las carpetas Linux tienen 2 carpetas “especiales” en su interior.</p>
+<ul>
+<li>Carpeta punto (.) - Hace referencia a la carpeta actual (a ella misma)</li>
+<li>Carpeta punto punto (..) -  Hace referencia a la carpeta superior (carpeta “padre”).</li>
+</ul>
+<p><strong>4. Enlaces:</strong></p>
+<ul>
+<li>Los enlaces son referencias o punteros a archivos o directorios existentes en el sistema de archivos.</li>
+<li>Hay dos tipos principales de enlaces en sistemas Linux: enlaces duros (hard links) y enlaces simbólicos (symbolic links o symlinks).</li>
+<li>Los enlaces duros apuntan al mismo contenido físico que el archivo original y no pueden cruzar sistemas de archivos.</li>
+<li>Los enlaces simbólicos son más flexibles y pueden apuntar a archivos o directorios en cualquier ubicación, incluso a través de sistemas de archivos diferentes.</li>
+<li>Los enlaces permiten compartir recursos de manera eficiente y mantener la integridad de los datos.</li>
+</ul>
+<h2 id="11-permisos">1.1. Permisos</h2>
+<p>En Linux, cada fichero y carpeta tiene tres niveles de permisos: propietario, grupo y otros.</p>
+<p>El propietario es el usuario que creó el archivo o carpeta, el grupo es un conjunto de usuarios relacionados y "otros" incluye a todos los demás usuarios.</p>
+<p><strong>Tipos:</strong></p>
+<p>Lectura (r): Permite ver el contenido del archivo o listar el contenido de una carpeta.</p>
+<p>Escritura (w): Permite modificar o eliminar el archivo o carpeta.</p>
+<p>Ejecución (x): Permite ejecutar un archivo o acceder a una carpeta.</p>
+<p><strong>Representación:</strong></p>
+<p>Los permisos se representan con una cadena de nueve caracteres: rwxrwxrwx.</p>
+<p>Los primeros tres caracteres representan los permisos del propietario, los siguientes tres del grupo y los últimos tres para otros.</p>
+<p><img alt="terminal1" src="../images/terminal1.png" /></p>
+<p><img alt="Untitled" src="../images/terminal2.png" /></p>
+<p><img alt="Untitled" src="../images/terminal3.png" /></p>
+<p><strong>Permisos especiales</strong></p>
+<ul>
+<li>Algunos archivos y carpetas tienen permisos especiales, como el bit SUID (Set User ID), que permite a un usuario ejecutar el archivo con los privilegios del propietario.</li>
+<li>El bit SGID (Set Group ID) hace que los archivos se ejecuten con los privilegios del grupo.</li>
+<li>El bit sticky (t) evita que otros usuarios eliminen o modifiquen archivos en una carpeta, a menos que sean propietarios o tengan permisos especiales.</li>
+</ul>
+<h2 id="12-carpetas-del-sistema">1.2. Carpetas del sistema</h2>
+<p><img alt="Untitled" src="../images/terminal4.png" /></p>
+<p>Estas carpetas son fundamentales para la organización y el funcionamiento del sistema. Dependiendo del Linux instalado algunas podrían no existir.</p>
+<ol>
+<li><strong>/root:</strong><ul>
+<li>Es el directorio de inicio del superusuario (root) y contiene los archivos de configuración y datos del superusuario.</li>
+</ul>
+</li>
+<li><strong>/home:</strong><ul>
+<li>Contiene directorios personales de los usuarios regulares. Cada usuario tiene su propia carpeta con su nombre de usuario, donde pueden almacenar sus archivos y configuraciones personales.</li>
+</ul>
+</li>
+<li><strong>/etc:</strong><ul>
+<li>Archivos de configuración del sistema y de aplicaciones. Aquí se encuentran configuraciones importantes como /etc/passwd (información de usuarios), /etc/fstab (tablas de montaje de dispositivos), y muchos otros.</li>
+</ul>
+</li>
+<li><strong>/bin y /sbin:</strong><ul>
+<li>/bin almacena binarios (ejecutables) esenciales para el sistema, que son necesarios incluso en el modo de usuario único.</li>
+<li>/sbin contiene binarios similares, pero están destinados a ser utilizados por el superusuario (root).</li>
+</ul>
+</li>
+<li><strong>/usr:</strong><ul>
+<li>/usr (abreviatura de "Unix System Resources") contiene programas, bibliotecas y archivos de datos que son utilizados por aplicaciones y usuarios.</li>
+<li>/usr/bin y /usr/sbin contienen binarios de programas instalados, mientras que /usr/lib contiene bibliotecas compartidas.</li>
+</ul>
+</li>
+<li><strong>/var:</strong><ul>
+<li>/var almacena datos variables, como <strong>archivos de registro (logs)</strong>, correos electrónicos y otros datos que cambian con el tiempo. Por ejemplo, /var/log contiene archivos de registro del sistema.</li>
+</ul>
+</li>
+<li><strong>/tmp:</strong><ul>
+<li>/tmp es un directorio temporal donde los programas y usuarios pueden crear archivos temporales. Los archivos aquí se eliminan automáticamente después de un tiempo o al reiniciar el sistema.</li>
+</ul>
+</li>
+<li><strong>/dev:</strong><ul>
+<li>/dev contiene archivos especiales que representan dispositivos en el sistema. Estos archivos se utilizan para interactuar con hardware y controladores de dispositivos.</li>
+</ul>
+</li>
+<li><strong>/proc:</strong><ul>
+<li>/proc es un sistema de archivos virtual que proporciona información en tiempo real sobre el sistema y los procesos en ejecución. Se utiliza para acceder a información del kernel y configuración dinámica.</li>
+</ul>
+</li>
+<li><strong>/mnt y /media:</strong><ul>
+<li>/mnt y /media son directorios utilizados para montar dispositivos de almacenamiento, como unidades USB o discos duros externos.</li>
+</ul>
+</li>
+<li><strong>/opt:</strong><ul>
+<li>/opt es el directorio donde se instalan aplicaciones y paquetes de software adicionales. Algunas aplicaciones de terceros se instalan en esta ubicación.</li>
+</ul>
+</li>
+<li><strong>/srv:</strong><ul>
+<li>/srv se utiliza para almacenar datos de servicios proporcionados por el sistema, como sitios web o archivos compartidos a través de la red.</li>
+</ul>
+</li>
+</ol>
+<h2 id="13-rutas-absolutas-y-relativas">1.3. Rutas absolutas y relativas</h2>
+<p>Hay dos tipos principales de rutas: rutas absolutas y rutas relativas.</p>
+<p><strong>1. Rutas Absolutas:</strong></p>
+<ul>
+<li>Siempre comienza con <code>/</code> y muestra la ubicación exacta sin importar el directorio actual desde el que se esté trabajando.</li>
+<li>Ejemplo de ruta absoluta: <code>/home/usuario/archivo.txt</code></li>
+</ul>
+<p><strong>2. Rutas Relativas:</strong></p>
+<ul>
+<li>No comienza con <code>/</code> y depende del directorio actual para determinar la ubicación. (Es relativa al directorio actual)</li>
+<li>Ejemplo de ruta relativa: <code>../carpeta/archivo.txt</code></li>
+<li>Otro ejemplo: <code>carpeta/archivo.txt</code></li>
+</ul>
+<p><strong>Ejemplo:</strong></p>
+<p>Supongamos que estás trabajando desde el directorio <code>/home/usuario/</code> y tienes la siguiente estructura de carpetas y archivos:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/home/usuario/
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ├── documentos/
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    │   ├── archivo1.txt
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    │   └── archivo2.txt
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    ├── fotos/
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    │   ├── imagen1.jpg
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    │   └── imagen2.jpg
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    └── musica/
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        ├── cancion.mp3
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        └── lista_de_reproduccion.m3u
+</span></code></pre></div>
+<ul>
+<li>Para acceder al archivo <code>archivo1.txt</code> desde el directorio actual <code>/home/usuario/</code>, puedes utilizar una ruta relativa: <code>documentos/archivo1.txt</code>.</li>
+<li>Para acceder al mismo archivo desde cualquier ubicación en el sistema, puedes utilizar una ruta absoluta: <code>/home/usuario/documentos/archivo1.txt</code>.</li>
+</ul>
+<p>Las rutas relativas son útiles cuando deseas trabajar dentro de un contexto específico, mientras que las rutas absolutas son necesarias cuando necesitas acceder a recursos desde cualquier ubicación en el sistema.</p>
+<h2 id="14-tips-terminal">1.4. Tips terminal</h2>
+<p>Uso tabulador.</p>
+<p>Navegación por flechas.</p>
+<h2 id="15-editores-consola">1.5. Editores consola</h2>
+<h3 id="151-nano">1.5.1. <strong>nano</strong></h3>
+<p>Nano es un editor de texto en la línea de comandos que es especialmente adecuado para usuarios principiantes.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>nano<span class="w"> </span>nombre_del_archivo<span class="w"> </span><span class="c1"># Abrir un archivo (o crear un archivo si no existe)</span>
+</span></code></pre></div>
+<aside>
+✏️ **EJERCICIOS**
+
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1. Crear un archivo llamado &quot;abecedario.txt&quot; que contenga todas las letras del abecedario, una por línea.
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2. Ejecuta el siguiente comando para tener una copia de seguridad del archivo:
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    cp abecedario.txt abecedario.bk
+</span></code></pre></div>
+
+</aside>
+
+<p><strong>Navegación:</strong></p>
+<ul>
+<li>Utiliza las teclas de dirección (flechas) para mover el cursor por el texto.</li>
+<li>Puedes usar las teclas "Av Pág" y "Re Pág" para desplazarte rápidamente hacia arriba y hacia abajo.</li>
+</ul>
+<p><strong>Edición de Texto:</strong></p>
+<ul>
+<li>Simplemente escribe o borra texto directamente en la ubicación del cursor.</li>
+<li>Usa las teclas "Insert" o "Ins" para alternar entre los modos de inserción y reemplazo.</li>
+<li>Para copiar y pegar, selecciona el texto con el cursor y luego utiliza las teclas "Ctrl + K" para cortar y "Ctrl + U" para pegar.</li>
+</ul>
+<p><strong>Guardar y Salir:</strong></p>
+<ul>
+<li>Para guardar los cambios y salir, presiona "Ctrl + O" (te pedirá confirmación, presiona "Enter" para confirmar) y luego "Ctrl + X" para salir.</li>
+<li>Si deseas salir sin guardar los cambios, simplemente presiona "Ctrl + X" y confirma si es necesario.</li>
+</ul>
+<p><strong>Buscar y Reemplazar:</strong></p>
+<ul>
+<li>Presiona "Ctrl + W" para buscar texto en el archivo.</li>
+<li>Para buscar y reemplazar, presiona "Ctrl + \" y sigue las instrucciones en la parte inferior de la pantalla.</li>
+</ul>
+<p><strong>Números de Línea:</strong></p>
+<ul>
+<li>Puedes ver los números de línea activando la opción "Ctrl + _" (Control + Shift + Barra Invertida).</li>
+</ul>
+<p><strong>Guardar Copias de Seguridad:</strong></p>
+<ul>
+<li>Para hacer copias de seguridad automáticas mientras editas, usa la opción "Ctrl + O" y agrega la opción "-B" al final del nombre del archivo.</li>
+</ul>
+<p><strong>Resaltado de Sintaxis:</strong></p>
+<ul>
+<li>Nano ofrece resaltado de sintaxis para varios lenguajes de programación. Puedes habilitarlo con "Ctrl + Y" durante la edición.</li>
+</ul>
+<p><strong>Configuración Personalizada:</strong></p>
+<ul>
+<li>Puedes personalizar Nano creando un archivo de configuración en tu directorio de inicio llamado ".nanorc". Aquí puedes definir atajos de teclado y otras preferencias.</li>
+</ul>
+<p><strong>Ayuda:</strong></p>
+<ul>
+<li>Para acceder a la ayuda en línea de Nano, presiona "Ctrl + G". Aquí encontrarás una lista de comandos y atajos útiles.</li>
+</ul>
+<h3 id="152-vi-vim">1.5.2. <strong>vi, vim</strong></h3>
+<p>El editor de consola Vi es una herramienta poderosa y versátil para editar archivos de texto en sistemas basados en Unix y Linux. Aunque puede tener una curva de aprendizaje pronunciada, dominar Vi es esencial para los usuarios avanzados y administradores de sistemas.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>vi<span class="w"> </span>nombre_del_archivo<span class="w"> </span><span class="c1"># Abrir un archivo (o crear un archivo nuevo si no existe)</span>
+</span></code></pre></div>
+<p><strong>Modos de Vi:</strong></p>
+<ul>
+<li><strong>Modo Normal:</strong> Cuando abres Vi, estás en el modo normal. En este modo, no puedes editar directamente el texto, pero puedes navegar por el archivo y ejecutar comandos.</li>
+<li><strong>Modo de Inserción:</strong> Para editar el texto, debes cambiar al modo de inserción. Presiona "i" para ingresar al modo de inserción antes del cursor. También puedes usar "a" para entrar en el modo de inserción después del cursor.</li>
+<li><strong>Modo de Comando:</strong> Puedes volver al modo normal en cualquier momento presionando la tecla "Esc".</li>
+</ul>
+<p><strong>Guardar y Salir:</strong></p>
+<ul>
+<li>Para guardar los cambios y salir, presiona "Esc" para asegurarte de estar en el modo normal, luego escribe <strong><code>:wq</code></strong> y presiona "Enter".</li>
+<li>Para salir sin guardar, utiliza <strong><code>:q!</code></strong>.</li>
+<li>Si deseas guardar pero no salir, utiliza <strong><code>:w</code></strong>.</li>
+</ul>
+<p><strong>Navegación:</strong></p>
+<ul>
+<li><strong>h, j, k, l:</strong> Estas teclas se utilizan en el modo normal para mover el cursor hacia la izquierda, abajo, arriba y derecha, respectivamente.</li>
+<li><strong>G:</strong> Salta a la última línea del archivo.</li>
+<li><strong>:n:</strong> Salta a la línea "n" del archivo.</li>
+</ul>
+<p><strong>Búsqueda y Reemplazo:</strong></p>
+<ul>
+<li><strong>/texto:</strong> Busca "texto" hacia adelante en el archivo.</li>
+<li><strong>?texto:</strong> Busca "texto" hacia atrás en el archivo.</li>
+<li><strong>:s/buscar/reemplazar/g:</strong> Reemplaza todas las ocurrencias de "buscar" con "reemplazar" en la línea actual.</li>
+<li><strong>:%s/buscar/reemplazar/g:</strong> Reemplaza todas las ocurrencias de "buscar" con "reemplazar" en todo el archivo.</li>
+</ul>
+<p><strong>Copiar, Cortar y Pegar:</strong></p>
+<ul>
+<li><strong>yy:</strong> Copia (yanks) la línea actual.</li>
+<li><strong>dd:</strong> Corta (borra) la línea actual.</li>
+<li><strong>p:</strong> Pega el texto copiado o cortado después del cursor.</li>
+</ul>
+<p><strong>Desplazamiento Rápido:</strong></p>
+<ul>
+<li><strong>Ctrl + f:</strong> Desplazamiento hacia adelante una página.</li>
+<li><strong>Ctrl + b:</strong> Desplazamiento hacia atrás una página.</li>
+</ul>
+<p><strong>Deshacer y Rehacer:</strong></p>
+<ul>
+<li><strong>u:</strong> Deshace la última acción.</li>
+<li><strong>Ctrl + r:</strong> Rehace la última acción deshecha.</li>
+</ul>
+<h1 id="2-comandos-basicos">2.  Comandos básicos</h1>
+<h3 id="21-listado-de-archivos">2.1. Listado de archivos</h3>
+<p><strong>pwd</strong></p>
+<ul>
+<li><strong>Descripción:</strong> ("print working directory") muestra la ruta completa del directorio en el que te encuentras actualmente en el sistema de archivos.</li>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>P</code></strong>: Muestra la ruta física real en lugar de la ruta simbólica, si estás en un enlace simbólico.</li>
+<li><strong><code>-help</code></strong>: Muestra la ayuda y la información de uso del comando "pwd".</li>
+<li><strong><code>-version</code></strong>: Muestra la versión del comando "pwd".</li>
+</ul>
+</li>
+<li><strong>Ejemplo de uso:</strong></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span><span class="nb">pwd</span><span class="w"> </span><span class="c1"># Muestra la carpeta actual, la carpeta donde está el usuario</span>
+</span></code></pre></div>
+<p><strong>ls</strong></p>
+<ul>
+<li><strong>Descripción:</strong> (list) Muestra una lista de archivos y directorios en la ubicación especificada.</li>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>l</code></strong>: Muestra el contenido en formato largo, incluyendo detalles como permisos, propietario, grupo, tamaño, fecha de modificación y nombre del archivo.</li>
+<li><strong><code>a</code></strong>: Muestra archivos ocultos (los que comienzan con un punto <strong><code>.</code></strong>).</li>
+<li><strong><code>h</code></strong>: Muestra tamaños de archivos en un formato legible por humanos (por ejemplo, KB, MB, GB).</li>
+<li><strong><code>R</code></strong>: Lista de manera recursiva, mostrando el contenido de subdirectorios.</li>
+</ul>
+</li>
+<li><strong>Ejemplo de uso:</strong></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ls<span class="w"> </span><span class="c1"># Listar archivos y directorios en el directorio actual</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>ls<span class="w"> </span>-la<span class="w"> </span><span class="c1"># Listar archivos y directorios en formato largo y mostrar archivos ocultos</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>ls<span class="w"> </span>-R<span class="w"> </span>/ruta/al/directorio<span class="w"> </span><span class="c1"># Lista de manera recursiva</span>
+</span></code></pre></div>
+<aside>
+✏️ **EJERCICIOS**
+
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>1. Listar todos los archivos del directorio /bin.
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>2. Muestra todos los archivos y directorios de la carpeta actual (también los ficheros ocultos)
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>3. Muestra solamente los directorios de la carpeta actual
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>4. Muestra el contenido de la raíz del sistema
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>5. Muestra el contenido de la carpeta actual utilizando rutas absolutas
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>6. Listar todos los archivos del directorio /dev que empiecen por t.
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>7. Listar todos los archivos del directorio /dev que empiecen por t y acaben en C1.
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>8. Listar recursivamente el contenido de /usr
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>9. Listar todos los archivos del directorio /etc que empiecen por t en orden inverso.
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>10. Lista todos los archivos de tipo &quot;log&quot; del sistema
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>11. Mostrar el día y la hora actual.
+</span></code></pre></div>
+
+</aside>
+
+<h3 id="22-leer-el-contenido-de-un-archivo">2.2. Leer el contenido de un archivo</h3>
+<p><strong>cat</strong></p>
+<p>(concatenate) se utiliza para mostrar el contenido de archivos de texto en la terminal, pero también se utiliza para crear, concatenar y mostrar el contenido de archivos.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>n</code></strong>: Numerar las líneas del archivo.</li>
+<li><strong><code>E</code></strong>: Mostrar un signo de dólar (<strong><code>$</code></strong>) al final de cada línea.</li>
+<li><strong><code>A</code></strong>: Equivalente a <strong><code>vET</code></strong> para mostrar números de línea y signos de dólar.</li>
+<li><strong><code>b</code></strong>: Numerar las líneas en blanco.</li>
+<li><strong><code>s</code></strong>: Suprimir líneas en blanco repetidas al mostrar el contenido.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cat<span class="w"> </span>abecedario.txt<span class="w"> </span><span class="c1">#Mostrar el contenido de un archivo en la terminal</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>cat<span class="w"> </span>-n<span class="w"> </span>abecedario.txt<span class="w"> </span><span class="c1">#Mostrar el contenido de un archivo con números de línea</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>cat<span class="w"> </span>abecedario.txt<span class="w"> </span>abecedario.txt<span class="w"> </span><span class="c1">#Concatenar dos archivos y mostrar el resultado</span>
+</span></code></pre></div>
+<p><strong>more (less)</strong></p>
+<p>Visualizar el contenido de archivos de texto uno por uno en la terminal. Permite desplazarse hacia adelante y hacia atrás a través del contenido de un archivo, lo que lo hace útil para ver archivos largos sin sobrecargar la pantalla.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li>Presiona la barra espaciadora para avanzar una página.</li>
+<li>Presiona la tecla "q" para salir de <strong><code>more</code></strong> en cualquier momento.</li>
+<li>Para buscar texto, presiona la tecla "/" seguida del texto a buscar y luego presiona "Enter". Luego, usa "n" para buscar la siguiente coincidencia y "N" para buscar la anterior.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>more<span class="w"> </span>archivo.txt
+</span></code></pre></div>
+<p><strong>head</strong></p>
+<p>Mostrar las primeras líneas de un archivo de texto en la terminal. Por defecto, muestra las primeras 10 líneas.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>n N</code></strong>: Muestra las primeras N líneas del archivo.</li>
+<li><strong><code>c N</code></strong>: Muestra los primeros N bytes del archivo en lugar de líneas.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>head<span class="w"> </span>abecedario.txt<span class="w"> </span><span class="c1">#Mostrar las primeras 10 líneas de un archivo de texto</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>head<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>abecedario.txt<span class="w"> </span><span class="c1">#Mostrar las primeras 5 líneas de un archivo de texto</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>head<span class="w"> </span>-c<span class="w"> </span><span class="m">100</span><span class="w"> </span>abecedario.txt<span class="w"> </span><span class="c1">#Mostrar los primeros 100 bytes de un archivo</span>
+</span></code></pre></div>
+<p><strong>tail</strong></p>
+<p>Mostrar las últimas líneas de un archivo de texto en la terminal. Por defecto, muestra las últimas 10 líneas.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>n N</code></strong>: Muestra las últimas N líneas del archivo.</li>
+<li><strong><code>f</code></strong>: Muestra el contenido del archivo en tiempo real y se actualiza automáticamente cuando se agregan nuevas líneas al archivo (útil para ver archivos de registro en constante cambio).</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>tail<span class="w"> </span>abecedario.txt<span class="w"> </span><span class="c1">#Mostrar las últimas 10 líneas de un archivo de texto</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>abecedario.txt<span class="w"> </span><span class="c1">#Mostrar las últimas 5 líneas de un archivo de texto</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>tail<span class="w"> </span>-f<span class="w"> </span>abecedario.txt<span class="w"> </span><span class="c1">#Mostrar el contenido en tiempo real de un archivo de registro</span>
+</span></code></pre></div>
+<h3 id="23-gestion-de-archivos">2.3. Gestión de archivos</h3>
+<p><strong>touch</strong></p>
+<p>Crear archivos vacíos o actualizar la marca de tiempo de archivos existentes. Su funcionamiento básico es crear un archivo si no existe o actualizar la marca de tiempo del archivo si ya existe.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>c</code></strong>: No crea un nuevo archivo si no existe.</li>
+<li><strong><code>d</code></strong>: Permite especificar una fecha y hora de marca de tiempo en lugar de usar la actual.</li>
+<li><strong><code>t</code></strong>: Se utiliza junto con la opción <strong><code>d</code></strong> para establecer una fecha y hora específicas.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>touch<span class="w"> </span>miarchivo.txt<span class="w"> </span><span class="c1"># Crear un archivo vacío llamado &quot;miarchivo.txt&quot;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>touch<span class="w"> </span>-c<span class="w"> </span>miarchivo.txt<span class="w"> </span><span class="c1"># Actualizar la marca de tiempo de un archivo existente</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>touch<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;2023-10-02 14:30:00&quot;</span><span class="w"> </span>miarchivo.txt<span class="w"> </span><span class="c1"># Establecer una marca de tiempo personalizada</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>stat<span class="w"> </span>miarchivo.txt
+</span></code></pre></div>
+<p><strong>Operadores &gt; y &gt;&gt;</strong></p>
+<p>Se utilizan en Bash para redirigir la salida estándar de un comando hacia un archivo en lugar de mostrarla en la pantalla.</p>
+<p><strong><code>&gt;</code></strong> (Redirección de salida):</p>
+<p>Utilizado para redirigir la salida estándar de un comando hacia un archivo. Si el archivo ya existe, su contenido se sobrescribirá.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ls<span class="w"> </span>&gt;<span class="w"> </span>lista_archivos.txt
+</span></code></pre></div>
+<p><strong><code>&gt;&gt;</code></strong> (Redirección de salida, modo anexar):</p>
+<p>Funcionamiento: Similar a <strong><code>&gt;</code></strong>, pero en lugar de sobrescribir el archivo, agrega la salida al final del archivo. Si el archivo no existe, se crea.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Texto adicional&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>archivo_existente.txt
+</span></code></pre></div>
+<p><strong>Operador | (tubería, pipe) ‼️</strong></p>
+<p>Redirigir la salida de un comando hacia la entrada de otro. Esto permite encadenar varios comandos juntos para realizar operaciones más complejas o procesar datos de manera eficiente.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ls<span class="w"> </span>-la<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span>
+</span></code></pre></div>
+<p><strong>cp</strong></p>
+<p>Copiar archivos o directorios de un lugar a otro en el sistema de archivos.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>r</code></strong> o <strong><code>R</code></strong>: Copia directorios de manera recursiva.</li>
+<li><strong><code>i</code></strong>: Pide confirmación antes de sobrescribir un archivo existente.</li>
+<li><strong><code>u</code></strong>: Copia solo cuando el archivo de origen sea más reciente que el archivo de destino o cuando el archivo de destino no exista.</li>
+<li><strong><code>v</code></strong>: Muestra un mensaje para cada archivo copiado, mostrando el progreso.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>cp<span class="w"> </span>abecedario.txt<span class="w"> </span>/ruta/destino/<span class="w"> </span><span class="c1"># Copiar un archivo a otro directorio</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>cp<span class="w"> </span>-r<span class="w"> </span>directorio_origen/<span class="w"> </span>directorio_destino/<span class="w"> </span><span class="c1">#Copiar un directorio y su contenido recursivamente</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>cp<span class="w"> </span>-i<span class="w"> </span>abecedario.txt<span class="w"> </span>/ruta/destino/<span class="w"> </span><span class="c1">#Copiar un archivo con confirmación antes de sobrescribir</span>
+</span></code></pre></div>
+<p><strong>mv</strong></p>
+<p><strong>Mover</strong> o <strong>renombrar</strong> archivos y directorios en el sistema de archivos. Puede utilizarse para cambiar el nombre de un archivo o para cambiar su ubicación en el sistema de archivos.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>i</code></strong>: Pide confirmación antes de sobrescribir un archivo existente en el destino.</li>
+<li><strong><code>u</code></strong>: Mueve solo cuando el archivo de origen sea más reciente que el archivo de destino o cuando el archivo de destino no exista.</li>
+<li><strong><code>v</code></strong>: Muestra un mensaje para cada operación realizada, mostrando el progreso.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mv<span class="w"> </span>abecedario.txt<span class="w"> </span>/ruta/destino/<span class="w"> </span><span class="c1">#Mover un archivo a otro directorio</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>mv<span class="w"> </span>abecedario.txt<span class="w"> </span>abecedario2.txt<span class="w"> </span><span class="c1">#Cambiar el nombre de un archivo</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>mv<span class="w"> </span>directorio_origen/<span class="w"> </span>directorio_destino/<span class="w"> </span><span class="c1"># Mover un directorio y su contenido a otro lugar</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>mv<span class="w"> </span>directorio_actual/<span class="w"> </span>nuevo_nombre/<span class="w"> </span><span class="c1">#Cambiar el nombre de un directorio</span>
+</span></code></pre></div>
+<p><strong>rm</strong></p>
+<p>Eliminar archivos o directorios en el sistema de archivos.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>r</code></strong> o <strong><code>R</code></strong>: Elimina directorios y su contenido de manera recursiva.</li>
+<li><strong><code>i</code></strong>: Pide confirmación antes de eliminar cada archivo o directorio.</li>
+<li><strong><code>f</code></strong>: Forzar la eliminación sin pedir confirmación, útil para eliminar archivos sin interacción.</li>
+<li><strong><code>v</code></strong>: Muestra un mensaje para cada archivo o directorio eliminado, mostrando el progreso.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>rm<span class="w"> </span>abecedario.txt<span class="w"> </span><span class="c1">#Eliminar un archivo</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>rm<span class="w"> </span>-r<span class="w"> </span>directorio/<span class="w"> </span><span class="c1">#Eliminar un directorio y su contenido de manera recursiva</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>rm<span class="w"> </span>-f<span class="w"> </span>abecedario.txt<span class="w"> </span>abecedario2.txt<span class="w"> </span><span class="c1"># Eliminar varios archivos sin confirmación</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>rm<span class="w"> </span>-i<span class="w"> </span>abecedario1.txt<span class="w"> </span>abecedario2.txt<span class="w"> </span><span class="c1"># Eliminar archivos con confirmación</span>
+</span></code></pre></div>
+<p><strong>mkdir</strong></p>
+<p>Crear directorios (carpetas) en el sistema de archivos.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>p</code></strong>: Crea directorios padres necesarios de manera recursiva. Si un directorio padre no existe, lo creará automáticamente.</li>
+<li><strong><code>m</code></strong>: Establece permisos (modo) para el directorio creado.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>mkdir<span class="w"> </span>nombre_directorio<span class="w"> </span><span class="c1">#Crear un directorio en la ubicación actual</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>mkdir<span class="w"> </span>-m<span class="w"> </span><span class="m">755</span><span class="w"> </span>nombre_directorio<span class="w"> </span><span class="c1">#Crear un directorio con permisos específicos</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>directorio_padre/directorio_hijo/subdirectorio<span class="w"> </span><span class="c1"># Crear directorios anidados de manera recursiva</span>
+</span></code></pre></div>
+<p><strong>ln</strong></p>
+<p><img alt="Untitled" src="../images/terminal5.png" /></p>
+<ul>
+<li><strong>Descripción:</strong> El comando <strong><code>ln</code></strong> se utiliza para crear enlaces (links) entre archivos en sistemas Unix y Linux. Puede crear enlaces duros (hard links) o enlaces simbólicos (symbolic links o symlinks).</li>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>s</code></strong>: Crea un enlace simbólico en lugar de un enlace duro. Los enlaces simbólicos son referencias a archivos o directorios y pueden apuntar a ubicaciones fuera del sistema de archivos actual.</li>
+<li><strong><code>b</code></strong>: Realiza una copia de seguridad de los archivos existentes antes de reemplazarlos.</li>
+<li><strong><code>f</code></strong>: Fuerza la creación de enlaces, incluso si el archivo de destino ya existe.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>ln<span class="w"> </span>archivo_existente<span class="w"> </span>enlace_duro<span class="w"> </span><span class="c1">#Crear un enlace duro (hard link) para un archivo existente</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>ln<span class="w"> </span>-s<span class="w"> </span>/ruta/al/origen<span class="w"> </span>enlace_simbolico<span class="w"> </span><span class="c1">#Crear un enlace simbólico (symlink) a un archivo o directorio</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>ln<span class="w"> </span>-b<span class="w"> </span>archivo_existente<span class="w"> </span>enlace_duro<span class="w"> </span><span class="c1">#Crear un enlace duro y realizar una copia de seguridad del archivo de destino si ya existe</span>
+</span></code></pre></div>
+<hr />
+<aside>
+✏️ **EJERCICIOS**
+
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>**Gestión de archivos**
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>0. Crea el siguiente sistema de ficheros en tu home:
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>Para crear los ficheros y que tengan algo de contenido puedes utilizar el comando:
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>echo $RANDOM &gt; fichero_a_crear.txt
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>└── home/
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>  └── tu_usuario/
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>      └── ejercicios/
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>          ├── carpeta1/
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>          │   ├── archivo1.txt
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>          │   ├── archivo2.txt
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>          │   ├── subcarpeta1/
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>          │   │   └── archivo3.txt
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>          │   └── subcarpeta2/
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>          │       └── archivo4.txt
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>          ├── carpeta2/
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>          │   ├── subcarpeta1/
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>          │   │   └── archivo5.txt
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>          │   └── subcarpeta2/
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>          │       └── archivo6.txt
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>          └── documentos/
+</span><span id="__span-21-24"><a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>              ├── documento1.txt
+</span><span id="__span-21-25"><a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>              └── documento2.txt
+</span><span id="__span-21-26"><a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>
+</span><span id="__span-21-27"><a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>1. Vuelve a tu home (cd)
+</span><span id="__span-21-28"><a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a>
+</span><span id="__span-21-29"><a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a>**// Utilizando rutas relativas**
+</span><span id="__span-21-30"><a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a>2. Elimina el archivo &quot;archivo1.txt&quot;
+</span><span id="__span-21-31"><a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a>3. Borra la carpeta &quot;subcarpeta2&quot;
+</span><span id="__span-21-32"><a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a>4. Mueve el archivo &quot;archivo2.txt&quot; a la carpeta &quot;documentos&quot;
+</span><span id="__span-21-33"><a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a>5. Crea una carpeta llamada &quot;tmp/&quot; dentro de ejercicios.
+</span><span id="__span-21-34"><a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a>6. Copia la carpeta &quot;subcarpeta1&quot; a la carpeta &quot;tmp&quot;
+</span><span id="__span-21-35"><a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a>
+</span><span id="__span-21-36"><a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a>**// Utilizando rutas absolutas**
+</span><span id="__span-21-37"><a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a>7. Utiliza el comando rm para eliminar el archivo &quot;archivo5.txt&quot;
+</span><span id="__span-21-38"><a id="__codelineno-21-38" name="__codelineno-21-38" href="#__codelineno-21-38"></a>8. Copia el archivo &quot;documento1.txt&quot; a la carpeta &quot;subcarpeta1&quot;
+</span><span id="__span-21-39"><a id="__codelineno-21-39" name="__codelineno-21-39" href="#__codelineno-21-39"></a>NO-&gt;&gt;&gt;&gt; 9. Borra el archivo &quot;archivo5.txt&quot;
+</span><span id="__span-21-40"><a id="__codelineno-21-40" name="__codelineno-21-40" href="#__codelineno-21-40"></a>10. Copia la carpeta &quot;carpeta1&quot; dentro de la carpeta &quot;tmp&quot;
+</span><span id="__span-21-41"><a id="__codelineno-21-41" name="__codelineno-21-41" href="#__codelineno-21-41"></a>11. Borra la carpeta &quot;tmp/carpeta1&quot;
+</span><span id="__span-21-42"><a id="__codelineno-21-42" name="__codelineno-21-42" href="#__codelineno-21-42"></a>
+</span><span id="__span-21-43"><a id="__codelineno-21-43" name="__codelineno-21-43" href="#__codelineno-21-43"></a>**// Enlaces**
+</span><span id="__span-21-44"><a id="__codelineno-21-44" name="__codelineno-21-44" href="#__codelineno-21-44"></a>12. Crea un enlace llamado &quot;enlace1&quot; dentro de ejercicios, al archivo &quot;archivo6.txt&quot;
+</span><span id="__span-21-45"><a id="__codelineno-21-45" name="__codelineno-21-45" href="#__codelineno-21-45"></a>13. Muestra el contenido de &quot;enlace1&quot;
+</span><span id="__span-21-46"><a id="__codelineno-21-46" name="__codelineno-21-46" href="#__codelineno-21-46"></a>14. Modifica el contenido de &quot;archivo6.txt&quot;
+</span><span id="__span-21-47"><a id="__codelineno-21-47" name="__codelineno-21-47" href="#__codelineno-21-47"></a>15. Muestra el contenido de &quot;enlace1&quot;
+</span><span id="__span-21-48"><a id="__codelineno-21-48" name="__codelineno-21-48" href="#__codelineno-21-48"></a>16. Borra &quot;archivo6.txt&quot;
+</span><span id="__span-21-49"><a id="__codelineno-21-49" name="__codelineno-21-49" href="#__codelineno-21-49"></a>17. Realiza un ls -la para ver qué ha ocurrido
+</span><span id="__span-21-50"><a id="__codelineno-21-50" name="__codelineno-21-50" href="#__codelineno-21-50"></a>18. Muestra el contenido de &quot;enlace1&quot;
+</span><span id="__span-21-51"><a id="__codelineno-21-51" name="__codelineno-21-51" href="#__codelineno-21-51"></a>
+</span><span id="__span-21-52"><a id="__codelineno-21-52" name="__codelineno-21-52" href="#__codelineno-21-52"></a>**Extra**
+</span><span id="__span-21-53"><a id="__codelineno-21-53" name="__codelineno-21-53" href="#__codelineno-21-53"></a>1. Muévete a tu home (/home/tu_usuario) sin especificar la carpeta (utilizando un alias). 
+</span><span id="__span-21-54"><a id="__codelineno-21-54" name="__codelineno-21-54" href="#__codelineno-21-54"></a>        https://es.wikipedia.org/wiki/Virgulilla
+</span><span id="__span-21-55"><a id="__codelineno-21-55" name="__codelineno-21-55" href="#__codelineno-21-55"></a>2. Cambia a la carpeta /tmp y regresa al directorio anterior.
+</span><span id="__span-21-56"><a id="__codelineno-21-56" name="__codelineno-21-56" href="#__codelineno-21-56"></a>        https://www.ibm.com/docs/en/zos/2.2.0?topic=descriptions-cd-change-working-directory
+</span><span id="__span-21-57"><a id="__codelineno-21-57" name="__codelineno-21-57" href="#__codelineno-21-57"></a>3. Ejecuta los siguientes comandos (dentro de tu home)
+</span><span id="__span-21-58"><a id="__codelineno-21-58" name="__codelineno-21-58" href="#__codelineno-21-58"></a>    $   mkdir extra
+</span><span id="__span-21-59"><a id="__codelineno-21-59" name="__codelineno-21-59" href="#__codelineno-21-59"></a>    $   cd extra
+</span><span id="__span-21-60"><a id="__codelineno-21-60" name="__codelineno-21-60" href="#__codelineno-21-60"></a>    $   echo &quot;Hola&quot; &gt; 1
+</span><span id="__span-21-61"><a id="__codelineno-21-61" name="__codelineno-21-61" href="#__codelineno-21-61"></a>    $   echo &quot;Hola&quot; &gt; 2
+</span><span id="__span-21-62"><a id="__codelineno-21-62" name="__codelineno-21-62" href="#__codelineno-21-62"></a>    $   echo &quot;Hola&quot; &gt; -3
+</span><span id="__span-21-63"><a id="__codelineno-21-63" name="__codelineno-21-63" href="#__codelineno-21-63"></a>    $   mkdir 4 5 6 
+</span><span id="__span-21-64"><a id="__codelineno-21-64" name="__codelineno-21-64" href="#__codelineno-21-64"></a>    **** Escribe un comando que borre TODOS los archivos y directorios **** 
+</span></code></pre></div>
+
+</aside>
+
+<h3 id="24-division-de-archivos">2.4. División de archivos</h3>
+<p><strong>cut</strong></p>
+<p>Seleccionar y mostrar partes específicas de líneas de texto en archivos o la entrada estándar. Es útil para dividir o filtrar datos basados en campos delimitados por separadores, como tabulaciones o comas.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>f N</code></strong>: Especifica el número de campo que deseas extraer (por ejemplo, <strong><code>f 2</code></strong> para el segundo campo).</li>
+<li><strong><code>d DELIMITADOR</code></strong>: Especifica el delimitador utilizado para separar campos en las líneas (por defecto, es la pestaña).</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>cut<span class="w"> </span>-f<span class="w"> </span><span class="m">1</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span>archivo.csv<span class="w"> </span><span class="c1">#Extraer el primer campo de un archivo CSV (coma como delimitador)</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>cut<span class="w"> </span>-f<span class="w"> </span><span class="m">3</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">$&#39;\t&#39;</span><span class="w"> </span>archivo.txt<span class="w"> </span><span class="c1">#Extraer el tercer campo de un archivo de texto tabulado</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>cut<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span>-5<span class="w"> </span>archivo.txt<span class="w"> </span><span class="c1">#Extraer los primeros cinco caracteres de cada línea de un archivo</span>
+</span></code></pre></div>
+<p><strong>split</strong></p>
+<p>Dividir archivos grandes en fragmentos más pequeños, lo que puede ser útil para manejar archivos extensos o para la transferencia más eficiente de datos.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>b N</code></strong>: Divide el archivo en fragmentos de tamaño fijo especificado (por ejemplo, <strong><code>b 1M</code></strong> divide en fragmentos de 1 megabyte).</li>
+<li><strong><code>l N</code></strong>: Divide el archivo en fragmentos con un número fijo de líneas (por ejemplo, <strong><code>l 100</code></strong> divide en fragmentos de 100 líneas).</li>
+<li><strong><code>d</code></strong>: Utiliza nombres de archivo numéricos para los fragmentos (por ejemplo, <strong><code>x00</code></strong>, <strong><code>x01</code></strong>, <strong><code>x02</code></strong>, ...).</li>
+<li><strong><code>a N</code></strong>: Especifica el número de caracteres a utilizar en los nombres de archivo numéricos (por ejemplo, <strong><code>a 3</code></strong> para <strong><code>x001</code></strong>, <strong><code>x002</code></strong>, ...).</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>split<span class="w"> </span>-b<span class="w"> </span>1M<span class="w"> </span>archivo_grande.txt<span class="w"> </span><span class="c1">#Dividir un archivo en fragmentos de 1 megabyte</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>split<span class="w"> </span>-l<span class="w"> </span><span class="m">100</span><span class="w"> </span>archivo_grande.txt<span class="w"> </span><span class="c1">#Dividir un archivo en fragmentos con 100 líneas cada uno</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>split<span class="w"> </span>-a<span class="w"> </span><span class="m">3</span><span class="w"> </span>archivo_grande.txt<span class="w"> </span><span class="c1">#Dividir un archivo en fragmentos con nombres numéricos de tres caracteres</span>
+</span></code></pre></div>
+<aside>
+✏️ **EJERCICIOS**
+
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>1. Crea un archivo llamado &quot;resultado.txt&quot; que contenga un listado largo (opción -la) de la carpeta /etc
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>****2. Muestra la columna de los permisos del archivo anterior.
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>----&gt; 3. Muesta el nombre de los archivos de &quot;resultado.txt&quot;. &lt;--- (tr)
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>4. Muesta los nombres de los usuarios registrados en el sistema.
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>---
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>5. Crea o descarga el siguiente archivo que contiene:
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>**Nombre,Edad,Profesión,Teléfono,Ciudad,País,Primer Apellido,Segundo Apellido**
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>Juan,30,Ingeniero,123-456-789,Madrid,España,Pérez,Gómez
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>María,25,Médica,987-654-321,Barcelona,España,Rodríguez,López
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>Carlos,35,Abogado,555-555-555,Valencia,España,Fernández,Martínez
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>Ana,28,Profesora,444-333-222,Sevilla,España,López,Sánchez
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>David,40,Arquitecto,111-222-333,Bilbao,España,Martínez,Ruiz
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>Laura,29,Periodista,777-888-999,Granada,España,García,Pérez
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>Pedro,45,Médico,555-123-456,Toledo,España,García,Jiménez
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>Isabel,32,Ingeniera,333-666-999,Zaragoza,España,Torres,Rodríguez
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>Sergio,27,Diseñador,666-999-444,Barcelona,España,Ruiz,González
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>Luisa González,38,Psicóloga,222-444-666,Valencia,España,González,Ruiz
+</span><span id="__span-24-20"><a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>
+</span><span id="__span-24-21"><a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>6. Muestra el primer apellido de todos
+</span><span id="__span-24-22"><a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>7. Muestra la profesión de todos
+</span><span id="__span-24-23"><a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>8. Muestra el teléfono de todos
+</span><span id="__span-24-24"><a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>7. Muestra el Nombre y primer apellido de todos
+</span><span id="__span-24-25"><a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a>8. Mustra el Teléfono de los 2 últimos
+</span><span id="__span-24-26"><a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>9. Muestra todos los datos del primero
+</span><span id="__span-24-27"><a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a>10. Muestra todos los datos del último separados por espacios
+</span><span id="__span-24-28"><a id="__codelineno-24-28" name="__codelineno-24-28" href="#__codelineno-24-28"></a>11. Muestra el segundo grupo de dígitos del teléfono de Laura (888)
+</span><span id="__span-24-29"><a id="__codelineno-24-29" name="__codelineno-24-29" href="#__codelineno-24-29"></a>12. Muestra unicamente los campos Teléfono, ciudad y país de todos 
+</span></code></pre></div>
+
+</aside>
+
+<h3 id="25-busqueda-y-sustitucion-en-archivos">2.5. Búsqueda y sustitución en archivos</h3>
+<p><strong>tr</strong></p>
+<p>Toma una cadena de texto de entrada y realiza transformaciones en los caracteres según las especificaciones proporcionadas por el usuario. Puede utilizarse para reemplazar caracteres, eliminar caracteres, cambiar mayúsculas a minúsculas o viceversa, entre otros.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>d</code></strong>: Elimina los caracteres especificados en lugar de traducirlos.</li>
+<li><strong><code>c</code></strong>: Complementa el conjunto de caracteres especificados en lugar de traducirlos.</li>
+<li><strong><code>s</code></strong>: Sustituye secuencias repetidas de caracteres con un solo carácter.</li>
+<li><strong><code>u</code></strong>: Unicode. Permite especificar rangos de caracteres Unicode para la traducción.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>cat<span class="w"> </span>archivo.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;a-z,&#39;</span><span class="w"> </span><span class="s1">&#39;A-Z &#39;</span><span class="w"> </span><span class="c1"># Cambia minúsculas por mayúsculas</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>ls<span class="w"> </span>-la<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-s<span class="w"> </span><span class="s1">&#39; &#39;</span><span class="w"> </span><span class="c1"># Sustituye múltiples espacios por uno</span>
+</span></code></pre></div>
+<p><strong>grep</strong></p>
+<p>Buscar patrones de texto en archivos o en la entrada estándar. Se pueden buscar líneas que coincidan con un patrón especificado en un archivo o una serie de archivos.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>i</code></strong>: Realiza búsquedas insensibles a mayúsculas y minúsculas.</li>
+<li><strong><code>v</code></strong>: Invierte la búsqueda para mostrar las líneas que NO coinciden con el patrón.</li>
+<li><strong><code>r</code></strong> o <strong><code>R</code></strong>: Realiza búsquedas recursivas en directorios.</li>
+<li><strong><code>l</code></strong>: Muestra solo los nombres de los archivos que contienen coincidencias.</li>
+<li><strong><code>n</code></strong>: Muestra números de línea junto con las coincidencias.</li>
+<li><strong><code>e PATRÓN</code></strong>: Permite buscar múltiples patrones utilizando expresiones regulares.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>grep<span class="w"> </span><span class="s2">&quot;palabra&quot;</span><span class="w"> </span>archivo.txt<span class="w"> </span><span class="c1">#Buscar una palabra específica en un archivo</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;palabra&quot;</span><span class="w"> </span>archivo.txt<span class="w"> </span><span class="c1">#Buscar una palabra insensible a mayúsculas y minúsculas en un archivo</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>grep<span class="w"> </span>-rl<span class="w"> </span><span class="s2">&quot;palabra&quot;</span><span class="w"> </span>/ruta/al/directorio/<span class="w"> </span><span class="c1">#Buscar una palabra en todos los archivos de un directorio de manera recursiva y mostrar los nombres de los archivos que contienen coincidencias</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>grep<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;patrón1&quot;</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;patrón2&quot;</span><span class="w"> </span>archivo.txt<span class="w"> </span><span class="c1">#Buscar múltiples patrones utilizando expresiones regulares</span>
+</span></code></pre></div>
+<p><strong>sed</strong></p>
+<p>(Stream Editor) Realizar transformaciones en el texto de entrada (ya sea desde un archivo o la entrada estándar) y escribir la salida en la pantalla o en un archivo. Es especialmente útil para la búsqueda y sustitución de texto, así como para realizar otras ediciones en el contenido del archivo.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>e SCRIPT</code></strong>: Permite especificar un script de edición de <strong><code>sed</code></strong> para realizar múltiples operaciones.</li>
+<li><strong><code>i</code></strong>: Modifica el archivo de entrada directamente (in-place) en lugar de mostrar la salida en la pantalla.</li>
+<li><strong><code>n</code></strong>: Suprime la salida predeterminada de <strong><code>sed</code></strong> y solo muestra las líneas modificadas según el script.</li>
+<li><strong><code>r</code></strong> o <strong><code>E</code></strong>: Habilita las expresiones regulares extendidas.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>sed<span class="w"> </span><span class="s1">&#39;s/antiguo_texto/nuevo_texto/g&#39;</span><span class="w"> </span>archivo.txt<span class="w"> </span>&gt;<span class="w"> </span>nuevo_archivo.txt<span class="w"> </span><span class="c1">#Sustituir una cadena de texto por otra en un archivo y guardar el resultado en un nuevo archivo</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;/^$/d&#39;</span><span class="w"> </span>archivo.txt<span class="w"> </span><span class="c1">#Eliminar líneas vacías de un archivo y modificar el archivo en su lugar (in-place)</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/palabra1/reemplazo1/g&#39;</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/palabra2/reemplazo2/g&#39;</span><span class="w"> </span>archivo.txt<span class="w"> </span><span class="c1">#Utilizar un script de edición sed para realizar múltiples operaciones</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>sed<span class="w"> </span><span class="s1">&#39;s/ \+/\ /g&#39;</span><span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span><span class="c1"># reemplazar espacios</span>
+</span></code></pre></div>
+<p><strong>sed VS tr</strong></p>
+<p>Si necesitas realizar ediciones complejas o transformaciones avanzadas en el texto, "sed" es la opción adecuada (permite el uso de expresiones regulares). Si solo necesitas realizar traducciones simples de caracteres o eliminar caracteres específicos, "tr" es más adecuado debido a su simplicidad y velocidad.</p>
+<hr />
+<aside>
+✏️ **EJERCICIOS**
+
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Crea un archivo con el siguiente contenido (ejemplotexto.txt):
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>La camioneta es     vieja
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>La estUfa es nueva
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>La cesta de nueva
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>La camisa es vieja
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>La sudadera es nueva
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>**// Utiliza la opción -i para sobreescribir el fichero original**
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>1. Cambiar la U mayúscula por minúscula.
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>2. Reemplaza la palabra nueva por vieja.
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>3. Reemplaza la palabra vieja por nueva solamente en la línea 4 del archivo
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>4. La primera línea tiene muchos espacios antes de &quot;vieja&quot;, sustituyelos por 1 espacio
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>5. Sustituye todos los espacios por #
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>6. Eliminar los saltos de línea del archivo
+</span></code></pre></div>
+
+</aside>
+
+<ul>
+<li>
+<p><strong>Soluciones</strong></p>
+<ol>
+<li>
+<p>sed 's/U/u/g' ejemplotexto.txt</p>
+</li>
+<li>
+<p>sed -i '4 s/nueva/vieja/g' ejemplotexto.txt</p>
+</li>
+<li>
+<p>sed 's/ /#/g' ejemplotexto.txt</p>
+</li>
+</ol>
+<p>→ Mejora: sed 's/ +/#/g' ejemplotexto.txt</p>
+<ol>
+<li>sed -z 's/\n/ /g' a.txt</li>
+</ol>
+</li>
+</ul>
+<h3 id="26-ordenar">2.6. Ordenar</h3>
+<p><strong>sort</strong></p>
+<p>Ordenar líneas de texto en un archivo o la entrada estándar. Puede ordenar líneas alfabéticamente o numéricamente, en orden ascendente o descendente.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>r</code></strong>: Ordena en orden descendente (de mayor a menor).</li>
+<li><strong><code>n</code></strong>: Realiza una ordenación numérica en lugar de una ordenación alfabética.</li>
+<li><strong><code>u</code></strong>: Elimina líneas duplicadas en la salida.</li>
+<li><strong><code>k N[,M]</code></strong>: Especifica un campo o rango de campos a considerar al ordenar, donde N y M son números de columna.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>sort<span class="w"> </span>archivo.txt<span class="w"> </span><span class="c1">#Ordenar líneas alfabéticamente en orden ascendente</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>sort<span class="w"> </span>-rn<span class="w"> </span>archivo.txt<span class="w"> </span><span class="c1">#Ordenar líneas numéricamente en orden descendente</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>sort<span class="w"> </span>-n<span class="w"> </span>-k<span class="w"> </span><span class="m">2</span><span class="w"> </span>archivo.txt<span class="w"> </span><span class="c1">#Ordenar un archivo por el segundo campo (columna) numérico</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>sort<span class="w"> </span>-u<span class="w"> </span>archivo.txt<span class="w"> </span>&gt;<span class="w"> </span>archivo_sin_duplicados.txt<span class="w"> </span><span class="c1">#Eliminar líneas duplicadas en un archivo y guardar el resultado en un nuevo archivo</span>
+</span></code></pre></div>
+<h3 id="27-gestion-de-usuarios-y-grupos">2.7. Gestión de usuarios y grupos</h3>
+<p>useradd <strong><em>*vs </em>*adduser</strong></p>
+<p>useradd es un comando que ejecuta un binario del sistema, mientras que adduser es un script en perl que utiliza el binario useradd.</p>
+<p>La mayor ventaja del comando adduser es que crea el directorio home (/home/usuario/) del usuario de manera automática, cosa que no hace useradd (hay que usar la opción -m).</p>
+<p>userdel <strong><em>*vs </em>*deluser</strong></p>
+<p>Ambos comandos sirven para borrar usuarios. Y al igual que useradd y adduser: el comando userdel es un fichero binario, mientras que deluser es un script en perl que usa el binario userdel.</p>
+<p><strong>groupadd</strong></p>
+<p>Creación de grupos</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>groupadd<span class="w"> </span>grupo1
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="c1"># comprueba el fichero /etc/group</span>
+</span></code></pre></div>
+<p><strong>usermod</strong></p>
+<p>Añadir un usuario a un grupo</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>usermod<span class="w"> </span>-aG<span class="w"> </span>grupo1<span class="w"> </span>usuario1
+</span></code></pre></div>
+<h3 id="28-gestion-de-permisos">2.8. Gestión de Permisos</h3>
+<p><strong>chmod</strong></p>
+<p>Cambiar los permisos (lectura, escritura, ejecución) de archivos o carpetas en Linux.</p>
+<ul>
+<li><strong>Principales Opciones:</strong><ul>
+<li><strong><code>R</code></strong> (o <strong><code>-recursive</code></strong>): Aplica los cambios de permisos de manera recursiva a todos los archivos y carpetas dentro de una carpeta.</li>
+<li><strong><code>+</code></strong> (más) y <strong>``</strong> (menos): Permite agregar (+) o quitar (-) permisos.</li>
+<li><strong><code>u</code></strong>, <strong><code>g</code></strong>, <strong><code>o</code></strong> y <strong><code>a</code></strong>: Representan al propietario (user), grupo (group), otros (others) y todos (all) respectivamente.</li>
+<li>Permisos en formato octal: Se pueden establecer permisos utilizando números octales, como 755 o 644.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1"># Cambiar los permisos de un archivo para que el propietario tenga permisos de lectura y escritura, el grupo tenga solo permisos de lectura y otros no tengan ningún permiso</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>chmod<span class="w"> </span><span class="nv">u</span><span class="o">=</span>rw,g<span class="o">=</span>r,o<span class="o">=</span><span class="w"> </span>archivo.txt<span class="w"> </span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="c1"># Cambiar de manera recursiva los permisos de una carpeta y su contenido para que todos tengan permisos de lectura y escritura</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>chmod<span class="w"> </span>-R<span class="w"> </span><span class="nv">a</span><span class="o">=</span>rw<span class="w"> </span>carpeta/
+</span></code></pre></div>
+<p><em>Ejemplo con notación octal:</em></p>
+<p>Supongamos que deseas establecer los siguientes permisos en un archivo llamado "mi_archivo.txt":</p>
+<p>El propietario debe tener permisos de lectura, escritura y ejecución (7).</p>
+<p>El grupo debe tener permisos de lectura y ejecución, pero no de escritura (5).</p>
+<p>Otros usuarios deben tener solo permisos de lectura (4).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>mi_archivo.txt
+</span></code></pre></div>
+<p><img alt="Untitled" src="../images/terminal6.png" /></p>
+<p><strong>umask</strong></p>
+<p>Establecer y mostrar la máscara de creación de archivos por defecto. La máscara de creación de archivos determina los permisos predeterminados que se asignarán a los archivos y carpetas cuando se creen.</p>
+<ul>
+<li><strong>Principales Opciones:</strong><ul>
+<li>Sin opciones, el comando <strong><code>umask</code></strong> muestra la máscara de creación de archivos actual en notación octal.</li>
+<li><strong><code>S</code></strong> (o <strong><code>-symbolic</code></strong>): Muestra la máscara de creación de archivos en notación simbólica (por ejemplo, "u=rw,go=rx").</li>
+<li>Puedes establecer una máscara de creación de archivos específica proporcionando un número octal como argumento.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nb">umask</span><span class="w"> </span><span class="c1">#Mostrar la máscara de creación de archivos actual en notación octal</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="nb">umask</span><span class="w"> </span><span class="m">022</span><span class="w"> </span><span class="c1">#Establecer una máscara de creación de archivos que permita al propietario tener permisos completos (lectura, escritura, ejecución) y al grupo y otros tener solo permisos de lectura:</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="nb">umask</span><span class="w"> </span>-S<span class="w"> </span><span class="c1">#Mostrar la máscara de creación de archivos actual en notación simbólica</span>
+</span></code></pre></div>
+<p><strong>chown</strong></p>
+<p>Cambiar el propietario y el grupo de archivos y carpetas en sistemas Unix y Linux.</p>
+<ul>
+<li><strong>Principales Opciones:</strong><ul>
+<li><strong><code>R</code></strong> (o <strong><code>-recursive</code></strong>): Aplica los cambios de propietario y grupo de manera recursiva a todos los archivos y carpetas dentro de una carpeta.</li>
+<li><strong><code>usuario:grupo</code></strong> (o <strong><code>usuario</code></strong>) especifica el nuevo propietario y, opcionalmente, el nuevo grupo para los archivos y carpetas.</li>
+<li>Puedes utilizar el nombre de usuario o el identificador numérico de usuario (UID) y el nombre de grupo o el identificador numérico de grupo (GID) como argumentos.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c1"># Cambiar el propietario y el grupo de un archivo llamado &quot;mi_archivo.txt&quot; a un usuario llamado &quot;nuevo_usuario&quot; y un grupo llamado &quot;nuevo_grupo&quot;</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>chown<span class="w"> </span>nuevo_usuario:nuevo_grupo<span class="w"> </span>mi_archivo.txt
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="c1"># Cambiar de manera recursiva el propietario y el grupo de una carpeta llamada &quot;mi_carpeta&quot; y su contenido:</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>chown<span class="w"> </span>-R<span class="w"> </span>nuevo_usuario:nuevo_grupo<span class="w"> </span>mi_carpeta/
+</span></code></pre></div>
+<p><strong>chgrp</strong></p>
+<p>Cambiar el grupo de archivos y carpetas sin cambiar el propietario.</p>
+<ul>
+<li><strong>Principales Opciones:</strong><ul>
+<li><strong><code>R</code></strong> (o <strong><code>-recursive</code></strong>): Aplica los cambios de grupo de manera recursiva a todos los archivos y carpetas dentro de una carpeta.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>chgrp<span class="w"> </span>nuevo_grupo<span class="w"> </span>mi_archivo.txt<span class="w"> </span><span class="c1"># Cambiar el grupo de un archivo llamado &quot;mi_archivo.txt&quot; a un grupo llamado &quot;nuevo_grupo&quot;</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>chgrp<span class="w"> </span>-R<span class="w"> </span>nuevo_grupo<span class="w"> </span>mi_carpeta/<span class="w"> </span><span class="c1"># Cambiar de manera recursiva el grupo de una carpeta llamada &quot;mi_carpeta&quot; y su contenido</span>
+</span></code></pre></div>
+<aside>
+✏️ **EJERCICIOS**
+
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>1. Crea un usuario utilizando useradd y comprueba si se ha creado su home.
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>2. Borra un usuario utilizando deluser y comprueba si se ha borrado su home.
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>3. Muestra las últimas líneas de /etc/passwd
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>4. Crea un grupo grupo1
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>5. Añade a los dos usuarios creados a este grupo.
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>6. Borra los grupos creados
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>7. Borra los usuarios creados
+</span></code></pre></div>
+
+</aside>
+
+<h3 id="29-ayuda">2.9. Ayuda</h3>
+<p><strong>man</strong></p>
+<p>Acceder al sistema de páginas del manual en Unix y Linux. Proporciona documentación detallada y ayuda sobre otros comandos y utilidades disponibles en el sistema.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>man NOMBRE_COMANDO</code></strong>: Muestra la página del manual de un comando específico. Reemplaza "NOMBRE_COMANDO" con el nombre del comando del que deseas obtener información.</li>
+<li><strong><code>k PALABRA_CLAVE</code></strong>: Busca comandos relacionados con una palabra clave en la descripción del comando.</li>
+<li><strong><code>f NOMBRE_COMANDO</code></strong>: Muestra una descripción breve del comando sin acceder a la página completa del manual.</li>
+<li><strong><code>man -k .</code></strong>: Muestra una lista de todos los comandos disponibles en el sistema.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>man<span class="w"> </span>ls<span class="w"> </span><span class="c1">#Ver la página del manual del comando ls</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>man<span class="w"> </span>-f<span class="w"> </span>grep<span class="w"> </span><span class="c1">#Mostrar una descripción breve del comando grep</span>
+</span></code></pre></div>
+<p><strong>tldr</strong></p>
+<p><a href="https://github.com/tldr-pages/tldr">https://github.com/tldr-pages/tldr</a></p>
+<p><a href="https://github.com/tldr-pages/tldr">https://github.com/tldr-pages/tldr</a></p>
+<p>Proporciona versiones simplificadas y más fáciles de entender de las páginas del manual de otros comandos. Está diseñado para brindar información rápida y concisa sobre cómo usar comandos comunes de Unix y Linux sin necesidad de leer las páginas completas del manual.</p>
+<ul>
+<li><strong>Principales opciones:</strong><ul>
+<li><strong><code>tldr NOMBRE_COMANDO</code></strong>: Muestra una descripción simplificada y ejemplos de uso para el comando especificado. Reemplaza "NOMBRE_COMANDO" con el nombre del comando que deseas consultar.</li>
+<li><strong><code>tldr --list</code></strong>: Lista todos los comandos disponibles en el sistema para los que se proporcionan descripciones en <strong><code>tldr</code></strong>.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>tldr<span class="w"> </span>ls<span class="w"> </span><span class="c1"># Ver una descripción simplificada del comando ls con ejemplos</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>tldr<span class="w"> </span>--list<span class="w"> </span><span class="c1"># Listar todos los comandos disponibles en tldr</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Josep Garcia Garcia | <a href="https://github.com/josepgarcia/BigDataAplicado24-25" target="_blank">https://github.com/josepgarcia/BigDataAplicado24-25</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
