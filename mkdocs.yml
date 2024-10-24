@@ -1,7 +1,36 @@
 site_name: Big Data Aplicado 2024-25
+site_url: https://josepgarcia.github.io/BigDataAplicado24-25/
+repo_url: https://github.com/josepgarcia/bigDataAplicado24-25/
+edit_uri: edit/main/docs/
 
 nav:
-  - UD00 Conceptos Generales: 00-ConceptosGenerales.md
-  - Inicio: index.md
+  - INICIO: index.md
+  - UD 00 Conceptos Generales:
+    - Conceptos Generales: UD00/1.ConceptosGenerales.md
+    - $_bash: UD00/2.bash.md
+    - Python venv: UD00/8.EntornosVirtualesPython.md
+  - UD 02 Cluster Pseudo. HDFS:
+    - Instalación: UD02/1.instalacion.md
 
-theme: material
+theme: 
+  language: es
+  name: material
+  features:
+    - content.action.edit
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+
+copyright: >
+  Josep Garcia Garcia | <a href="https://github.com/josepgarcia/BigDataAplicado24-25" target="_blank">https://github.com/josepgarcia/BigDataAplicado24-25</a>
+
+markdown_extensions: 
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

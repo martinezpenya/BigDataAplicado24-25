@@ -1,4 +1,13 @@
-# BigDataAplicado24-25
+## BigDataAplicado24-25
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis maximus nisl at euismod. Proin quis maximus eros. Phasellus in imperdiet lectus. Morbi volutpat vel libero id vestibulum. Proin sagittis ultricies urna, non condimentum arcu tempor in. Sed tellus lorem, lacinia vel lorem non, commodo pulvinar velit. Quisque volutpat sodales eros, vitae blandit ligula fringilla sed. Aliquam erat volutpat. Aliquam in eros vel felis pretium tempor sed vel sem. Integer aliquet turpis vel leo vulputate consequat. Nunc sem risus, elementum vitae pellentesque in, imperdiet sit amet leo.
-Fusce quis hendrerit lectus, quis mattis ipsum. Vestibulum ex mi, blandit et mattis ut, dictum sed libero. Aliquam ac commodo felis. Ut viverra rutrum enim, in aliquam tellus scelerisque sit amet. Nulla convallis lectus eu turpis faucibus, consectetur mattis nisi tempor. Sed at nunc ut libero semper sagittis. Duis eget ligula quis nulla facilisis luctus. Proin nunc orci, dignissim in neque non, dignissim hendrerit eros. Vestibulum condimentum eleifend odio sagittis ultricies. Curabitur et vulputate lectus, id aliquam magna.
+1. UD00: Conceptos generales
+	[1.ConceptosGenerales](<./UD00/1.ConceptosGenerales.md>)
+	[2.bash](<./UD00/2.bash.md>)
+	[8.EntornosVirtualesPython](<./UD00/8.EntornosVirtualesPython.md>)
+
+2. UD01: Hadoop
+
+3. UD02: Cluster Hadoop pseudodistribuido. HDFS.
+	[1.instalacion](<./UD02/1.instalacion.md>)
+	[2.webdfs](<./UD02/2.webdfs.md>)
+	
