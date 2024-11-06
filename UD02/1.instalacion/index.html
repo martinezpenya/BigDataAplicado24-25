@@ -14,6 +14,8 @@
         <link rel="prev" href="../../UD00/8.EntornosVirtualesPython/">
       
       
+        <link rel="next" href="../8.clusterdocker/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
@@ -316,7 +318,7 @@
         
   
   <span class="md-ellipsis">
-    Python venv
+    Entornos Virtuales
   </span>
   
 
@@ -491,6 +493,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.clusterdocker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -608,7 +631,11 @@
 
 
 <h1 id="hdfs-cluster-hadoop-pseudodistribuido">HDFS. Cluster Hadoop pseudodistribuido.</h1>
-<p>ℹ️ También conocido como Cluster de un solo nodo. Como solo tenemos un nodo, el mismo nodo será el maestro y el esclavo (no pasará nunca en producción ya que siempre tendremos un maestro y varios esclavos).</p>
+<div class="admonition note">
+<p class="admonition-title">Custer Pseudodistribuido</p>
+<p>También conocido como Cluster de un solo nodo.<br />
+Como solo tenemos un nodo, el mismo nodo será el maestro y el esclavo (no pasará nunca en producción ya que siempre tendremos un maestro y varios esclavos).</p>
+</div>
 <h2 id="creacion-configuracion-del-cluster">Creación / configuración del cluster</h2>
 <p>Como usuario <code>hadoop</code></p>
 <p>Accedemos por ssh a la máquina virtual en la que habíamos descomprimido hadoop.</p>
@@ -693,7 +720,10 @@
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>$<span class="w"> </span>ls<span class="w"> </span>/datos/namenode/*
 </span></code></pre></div>
 <h2 id="arrancamos-hdfs">Arrancamos HDFS</h2>
-<p>ℹ️ Hadoop tiene dos partes: DATOS y PROCESOS, actualmente estamos trabajando en la parte de DATOS.</p>
+<div class="admonition info">
+<p class="admonition-title">Hadoop</p>
+<p>Hadoop tiene dos partes: DATOS y PROCESOS, actualmente estamos trabajando en la parte de DATOS.</p>
+</div>
 <p>Arrancamos los procesos de HDFS. Debe arrancar el NAMENODE, el SECONDARY NAMENODE y el DATANODE.</p>
 <p>Vamos a la carpeta <code>sbin</code> dentro de hadoop.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/opt/hadoop/sbin/
@@ -727,7 +757,7 @@
 <p>http://HOSTNAME_O_IP:PUERTO</p>
 <p><a href="http://192.168.64.14:9870/">http://192.168.64.14:9870/</a></p>
 <p><a href="http://debianh:9864/">http://debianh:9864/</a> → Menos opciones</p>
-<p><img alt="" src="../images/instalacion1.png" />
+<p><img alt="" src="../images/instalacion1.png" /><br />
 <img alt="" src="../images/instalacion2.png" /></p>
 <h1 id="3-trabajar-con-hfs">3. Trabajar con HFS</h1>
 <p>En <code>/datos/namenode/current</code> hay 3 tipos de ficheros:</p>
@@ -764,7 +794,7 @@
 </li>
 </ul>
 <h1 id="09-errores">09. Errores</h1>
-<p><strong>Permission denied: user=dr.who, access=WRITE, inode="/":hadoop:supergroup:drwxr-xr-x</strong>
+<p><strong>Permission denied: user=dr.who, access=WRITE, inode="/":hadoop:supergroup:drwxr-xr-x</strong><br />
 <img alt="" src="../images/instalacion3.png" /></p>
 <p><strong>Failed to retrieve data from /webhdfs/v1/?op=LISTSTATUS: Server Error</strong></p>
 <p>PROBLEMA con la versión de JAVA, java 17.</p>

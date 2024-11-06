@@ -314,7 +314,7 @@
         
   
   <span class="md-ellipsis">
-    Python venv
+    Entornos Virtuales
   </span>
   
 
@@ -378,6 +378,27 @@
   
   <span class="md-ellipsis">
     Instalación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../UD02/8.clusterdocker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
   </span>
   
 
@@ -561,7 +582,7 @@
 </span></code></pre></div>
 <p>Una vez personalizado el contenedor podremos <a href="https://www.notion.so/fffe913de6c481e595e7df88025b9a38?pvs=21"></a> </p>
 <h1 id="2-imagenes">2. Imagenes</h1>
-<p>Es un instalador donde podemos incorporar nuestra aplicación. Es el punto de inicio para crear contenedores.
+<p>Es un instalador donde podemos incorporar nuestra aplicación. Es el punto de inicio para crear contenedores.<br />
 Hay imágenes oficiales de por ejemplo Ubuntu, Apache, etc, que fueron creadas por sus creadores oficiales.</p>
 <p>Página oficial para imagenes: <a href="https://hub.docker.com">https://hub.docker.com</a> </p>
 <p>Vamos a utilizar la siguiente imagen para pruebas:</p>
@@ -872,14 +893,14 @@ Hay imágenes oficiales de por ejemplo Ubuntu, Apache, etc, que fueron creadas p
 <h3 id="run"><strong>RUN</strong></h3>
 <p>El comando <strong>RUN</strong> se ejecuta cuando se está construyendo una imagen personalizada para realizar una acción, creando una capa nueva. Este comando tiene el siguiente formato:</p>
 <blockquote>
-<p>RUN comando
+<p>RUN comando<br />
 </p>
-<p>RUN [“ejecutable”, “parametro1”, …]
+<p>RUN [“ejecutable”, “parametro1”, …]<br />
 </p>
 </blockquote>
 <p>Ejemplo en windows:</p>
 <blockquote>
-<p>RUN [“Powershell”, “Get-Services”, “*”]
+<p>RUN [“Powershell”, “Get-Services”, “*”]<br />
 </p>
 </blockquote>
 <h3 id="copy">COPY</h3>
@@ -963,19 +984,19 @@ Hay imágenes oficiales de por ejemplo Ubuntu, Apache, etc, que fueron creadas p
 <p>Este comando se ejecuta cuando se quiere ejecutar un ejecutable en el contenedor en su arranque. Los ejemplos tipo de su uso, son cuando se quiere levantar un servidor web, una base de datos, etc ….</p>
 <p>Este comando tiene dos sintaxis:</p>
 <blockquote>
-<p>ENTRYPOINT [“comando”, “Parametro1”, “Parametro2”, …]
+<p>ENTRYPOINT [“comando”, “Parametro1”, “Parametro2”, …]<br />
 </p>
 </blockquote>
 <p>Esta es la forma recomendada.</p>
 <blockquote>
-<p>ENTRYPOINT comando parametro1 parametro2
+<p>ENTRYPOINT comando parametro1 parametro2<br />
 </p>
 </blockquote>
 <p>Con esta forma el comando se ejecuta en la Shell del contenedor.</p>
 <p><strong>Utilización de varios comandos de forma conjunta</strong></p>
 <p>Como se ha comentado anteriormente el comando CMD se puede utilizar para pasar parámetros al comando ENRYPOINT. Una posible forma de realizarlo es:</p>
 <blockquote>
-<p>ENRYPOINT [“Powershell”, “Get-Services”]CMD [“MySql]
+<p>ENRYPOINT [“Powershell”, “Get-Services”]CMD [“MySql]<br />
 </p>
 </blockquote>
 <p>En el ejemplo, se está invocando al comando Get-Services para recuperar información de los servicios Windows y como en el comando CMD se está indicando el servicio en concreto del que se quiere recuperar la información que en este caso es del servicio Windows de MySql.</p>
@@ -1058,35 +1079,35 @@ Hay imágenes oficiales de por ejemplo Ubuntu, Apache, etc, que fueron creadas p
 <h2 id="copias-de-contenedores">Copias de contenedores</h2>
 <p>Ya estén encendidos o apagados, podemos realizar respaldos de seguridad de los contenedores. Utilizando la opción “<em>export</em>” empaquetará el contenido, generando un fichero con extensión “.<em>tar</em>” de la siguiente manera:</p>
 <blockquote>
-<p>docker export -o fichero-resultante.tar nombre-contenedor
+<p>docker export -o fichero-resultante.tar nombre-contenedor<br />
 </p>
 </blockquote>
 <p>o</p>
 <blockquote>
-<p>docker export nombre-contenedor &gt; fichero-resultante.tar
+<p>docker export nombre-contenedor &gt; fichero-resultante.tar<br />
 </p>
 </blockquote>
 <h2 id="restauracion-de-copias-de-seguridad-de-contenedores"><strong>Restauración de copias de seguridad de contenedores</strong></h2>
 <p>Hay que tener en cuenta, antes de nada, que no es posible restaurar el contenedor directamente, de forma automática. En cambio, sí podemos crear una imagen, a partir de un respaldo de un contenedor, mediante el parámetro “<em>import</em>” de la siguiente manera:</p>
 <blockquote>
-<p>docker import fichero-backup.tar nombre-nueva-imagen
+<p>docker import fichero-backup.tar nombre-nueva-imagen<br />
 </p>
 </blockquote>
 <h2 id="copias-de-imagenes"><strong>Copias de imágenes</strong></h2>
 <p>Aunque no tiene mucho sentido por que se bajan muy rápido, también tenemos la posibilidad de realizar copias de seguridad de imágenes. El proceso se realiza al utilizar el parámetro ‘<em>save</em>‘, que empaquetará el contenido y generará un fichero con extensión “<em>tar</em>“, así:</p>
 <blockquote>
-<p>docker save nombre_imagen &gt; imagen.tar
+<p>docker save nombre_imagen &gt; imagen.tar<br />
 </p>
 </blockquote>
 <p>o</p>
 <blockquote>
-<p>docker save -o imagen.tar nombre_imagen
+<p>docker save -o imagen.tar nombre_imagen<br />
 </p>
 </blockquote>
 <h2 id="restaurar-copias-de-seguridad-de-imagenes"><strong>Restaurar copias de seguridad de imágenes</strong></h2>
 <p>Con el parámetro ‘load’, podemos restaurar copias de seguridad en formato ‘.tar’ y de esta manera recuperar la imagen.</p>
 <blockquote>
-<p>docker load -i fichero.tar
+<p>docker load -i fichero.tar<br />
 </p>
 </blockquote>
 <h1 id="7-contenedores-ejemplo">7. Contenedores ejemplo</h1>
