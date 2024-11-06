@@ -8,9 +8,10 @@ nav:
   - UD 00 Conceptos Generales:
     - Conceptos Generales: UD00/1.ConceptosGenerales.md
     - $_bash: UD00/2.bash.md
-    - Python venv: UD00/8.EntornosVirtualesPython.md
+    - Entornos Virtuales: UD00/8.EntornosVirtualesPython.md
   - UD 02 Cluster Pseudo. HDFS:
     - Instalación: UD02/1.instalacion.md
+    - Docker: UD02/8.clusterdocker.md
 
 theme: 
   language: es
@@ -34,3 +35,10 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - nl2br
+
+plugins:
+  - search
+  - callouts
