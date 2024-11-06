@@ -8,21 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD00/_PENDENT/UD00%202%20Conexi%C3%B3n%20ssh%20fffe913de6c48151aaf9d9ca1149270f/">
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD00/3.ssh/">
       
       
+        <link rel="prev" href="../2.bash/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+        <link rel="next" href="../8.EntornosVirtualesPython/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
-        <title>UD00 2. Conexión ssh - Big Data Aplicado 2024-25</title>
+        <title>ssh scp - Big Data Aplicado 2024-25</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -41,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href="../../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -96,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              UD00 2. Conexión ssh
+              ssh scp
             
           </span>
         </div>
@@ -183,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -213,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -230,17 +234,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -254,7 +260,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             UD 00 Conceptos Generales
@@ -268,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1.ConceptosGenerales/" class="md-nav__link">
+      <a href="../1.ConceptosGenerales/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -289,7 +295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2.bash/" class="md-nav__link">
+      <a href="../2.bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -307,10 +313,41 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ssh scp
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
-      <a href="../../8.EntornosVirtualesPython/" class="md-nav__link">
+      <a href="../8.EntornosVirtualesPython/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/1.instalacion/" class="md-nav__link">
+      <a href="../../UD02/1.instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -394,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/8.clusterdocker/" class="md-nav__link">
+      <a href="../../UD02/8.clusterdocker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -448,7 +485,7 @@
                   
 
   
-    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD00/_PENDENT/UD00 2 Conexión ssh fffe913de6c48151aaf9d9ca1149270f.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD00/3.ssh.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -458,7 +495,7 @@
 
 <h1 id="ud00-2-conexion-ssh">UD00 2. Conexión ssh</h1>
 <h1 id="1-ssh">1. ssh</h1>
-<p><img alt="Untitled" src="./UD00 2 Conexión ssh fffe913de6c48151aaf9d9ca1149270f/Untitled.png" /></p>
+<p><img alt="" src="../images/ssh.png" /></p>
 <p>A la máquina virtual podemos acceder de dos formas:</p>
 <ol>
 <li>Desde la misma máquina virtual.</li>
@@ -483,15 +520,10 @@
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Intenta acceder a la máquina virtual como root</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>$<span class="w"> </span>ssh<span class="w"> </span>root@192.168.64.14
 </span></code></pre></div>
-<aside>
-✏️ **EJERCICIOS**
-
+<p>✏️ <strong>Ejercicios</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. Modifica la configuración del servidor SSH para que se pueda acceder como root.
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2. Modifica el puerto del servicio SSH para que escuche por el 2222.
 </span></code></pre></div>
-
-</aside>
-
 <h1 id="2-scp">2. scp</h1>
 <p>Se utiliza para copiar archivos y directorios de forma segura entre sistemas remotos a través de SSH (Secure Shell). Es especialmente útil para transferir archivos de un sistema local a uno remoto o viceversa de manera segura y eficiente.</p>
 <p><strong>Principales opciones:</strong></p>
@@ -511,27 +543,6 @@
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>scp<span class="w"> </span>-r<span class="w"> </span>directorio_local/<span class="w"> </span>usuario@servidor.com:/ruta/destino/
 </span></code></pre></div>
 <h1 id="3-screen">3. screen</h1>
-<aside>
-💡 Hold a session open on a remote server. Manage multiple windows with a single SSH connection.
-
-- Start a new screen session:
-screen
-- Start a new named screen session:
-screen -S session_name
-- Start a new daemon and log the output to `screenlog.x`:
-screen -dmLS session_name command
-- Show open screen sessions:
-screen -ls
-- Reattach to an open screen:
-screen -r session_name
-- Detach from inside a screen:
-Ctrl + A, D
-- Kill the current screen session:
-Ctrl + A, K
-- Kill a detached screen:
-screen -X -S session_name quit
-</aside>
-
 <p>Permite crear sesiones de terminal multiplexadas en sistemas Unix y Linux. Esto significa que puedes iniciar múltiples sesiones de terminal dentro de una sola ventana y alternar entre ellas. Además, las sesiones de <code>screen</code> pueden ejecutarse en segundo plano, lo que permite desacoplarlas de la sesión de terminal actual.</p>
 <p>La principal ventaja de <code>screen</code> es que podemos:</p>
 <ul>
@@ -540,8 +551,27 @@ screen -X -S session_name quit
 <li>Salir del servidor ssh (el proceso continua ejecutándose).</li>
 <li>Volver a conectar al servidor ssh y recuperar la ejecución anterior.</li>
 </ul>
-<p>Más info:</p>
-<p><a href="https://www.youtube.com/watch?v=_ZJiEX4rmN4">https://www.youtube.com/watch?v=_ZJiEX4rmN4</a></p>
+<div class="admonition question">
+<p class="admonition-title">Hold a session open on a remote server. Manage multiple windows with a single SSH connection.</p>
+<p>Start a new screen session:<br />
+<code>screen</code></p>
+<p>Start a new named screen session:<br />
+<code>screen -S session_name</code></p>
+<p>Start a new daemon and log the output to <code>screenlog.x</code>: <br />
+<code>screen -dmLS session_name command</code></p>
+<p>Show open screen sessions:<br />
+<code>screen -ls</code></p>
+<p>Reattach to an open screen:<br />
+<code>screen -r session_name</code></p>
+<p>Detach from inside a screen:<br />
+<code>Ctrl + A, D</code></p>
+<p>Kill the current screen session:<br />
+<code>Ctrl + A, K</code></p>
+<p>Kill a detached screen:<br />
+<code>screen -X -S session_name quit</code></p>
+</div>
+<p>Más info:<br />
+<a href="https://www.youtube.com/watch?v=_ZJiEX4rmN4">https://www.youtube.com/watch?v=_ZJiEX4rmN4</a></p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>screen
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$<span class="w"> </span>screen<span class="w"> </span>–version
 </span></code></pre></div>
@@ -552,44 +582,10 @@ screen -X -S session_name quit
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># usando la variable -S. Por ejemplo</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>$<span class="w"> </span>screen<span class="w"> </span>-S<span class="w"> </span>session1
 </span></code></pre></div>
-<p>Comandos para realizar la multiplexación de la terminal.</p>
-<table>
-<thead>
-<tr>
-<th>Comandos</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CTRL+a c</td>
-<td>Crea una nueva ventana</td>
-</tr>
-<tr>
-<td>CTRL+a "</td>
-<td>Lista de todas las ventanas creadas.</td>
-</tr>
-<tr>
-<td>CTRL+a a</td>
-<td>Con este comando puedes eliminar un CTRL+a. Es útil si te equivocas.</td>
-</tr>
-<tr>
-<td>CTRL+a</td>
-<td></td>
-</tr>
-<tr>
-<td>CTRL+d</td>
-<td>Deja la sesión en ejecución.</td>
-</tr>
-<tr>
-<td>CTRL+a S</td>
-<td>Divide la terminal horizontalmente.</td>
-</tr>
-</tbody>
-</table>
+<p>Comandos para realizar la multiplexación de la terminal.<br />
+<img alt="" src="../images/screen.png" /></p>
 <h1 id="ejercicio">Ejercicio</h1>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Entregar en aules:
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>- Realiza las modificaciones necesarias para que al conectarte al ssh de tu máquina virtual no te pida contraseña.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>- Realiza las modificaciones necesarias para que al conectarte al ssh de tu máquina virtual no te pida contraseña.
 </span></code></pre></div>
 
 
@@ -642,10 +638,10 @@ screen -X -S session_name quit
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
